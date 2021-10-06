@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.loginBtn).setOnClickListener{
-
             if (findNavController(R.id.fragmentContainerView).currentDestination?.id!=R.id.loginFragment){
                 findNavController(R.id.fragmentContainerView).navigate(R.id.action_registrationFragment_to_loginFragment)
             }
