@@ -20,16 +20,15 @@
         android:minHeight="48dp"
         android:hint="@string/login"
         app:counterEnabled="true"
-        app:counterMaxLength="20"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/log_et_log"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:maxLength="20"
-            android:maxLines="1"
-            />
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -47,9 +46,12 @@
         app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:id="@+id/log_et_pass"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLength="20"
+            android:maxLines="1"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -60,11 +62,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="100dp"
-        android:background="@color/purple_500"
         android:backgroundTint="@color/white"
         android:text="@string/sign_in"
-        android:textColor="#E1BEE7"
-        android:textSize="18sp"
+        android:textColor="@color/purple_700"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />

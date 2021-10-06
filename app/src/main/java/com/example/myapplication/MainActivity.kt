@@ -36,28 +36,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-
-        //navController = findNavController(this, R.id.nav_graph_application)
-//         MAIN=this
-//
-//        binding.btnreg.setOnClickListener {
-//            supportFragmentManager.beginTransaction().replace(R.id.place_holder,RegistrationFragment()).commit()
-//        }
-//
-//
-//        binding.btnlog.setOnClickListener{
-//            supportFragmentManager
-//                .beginTransaction()
-//                .replace(R.id.place_holder, LoginFragment())
-//                .commit()
-//        }
-//
-//        supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.place_holder, LoginFragment())
-//            .commit()
         }
 
     }

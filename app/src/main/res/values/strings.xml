@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="splash_text">SPLASH</string>
-    <string name="splash_fragment">Splash</string>
+    <string name="switchf">Согласен с правилами</string>
+    <string name="registr">Зарегистрироваться</string>
     <string name="login_fragment">Login</string>
     <string name="main_fragment">MAIN</string>
     <string name="registration_fragment">Registration</string>
@@ -10,6 +10,7 @@
     <string name="mail">E-mail</string>
     <string name="password">Пароль</string>
     <string name="sign_in">Вход</string>
+
 
 
 
