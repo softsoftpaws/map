@@ -62,7 +62,7 @@ class RegistrationFragment:Fragment() {
                 findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
 
             } else if (!result(log, mail, pass, pass2)) {
-                Toast.makeText(context,  "Поля заполнены не верно", Toast.LENGTH_LONG).show()
+                Toast.makeText(context,  "Поля заполнены неверно", Toast.LENGTH_LONG).show()
 
             } else if (!validateCheck()) {
                 Toast.makeText(context, "Вы не согласились с правилами", Toast.LENGTH_LONG).show()

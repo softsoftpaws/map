@@ -51,7 +51,7 @@
         android:id="@+id/inputmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ  @ ."
         android:maxLength="20"
         android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -106,35 +106,32 @@
     <androidx.appcompat.widget.AppCompatButton
 
         android:id="@+id/regbtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="100dp"
-        android:background="@color/teal_700"
-        android:backgroundTint="@color/white"
+        android:layout_marginBottom="100dp"
         android:text="@string/registr"
-
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1"
-        style="@style/Widget.AppCompat.Button.Borderless"/>
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
         android:minHeight="48dp"
         android:text="@string/switchf"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/regbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textpass2"
-        tools:layout_editor_absoluteX="216dp" />
+        tools:ignore="NotSibling" />
 </androidx.constraintlayout.widget.ConstraintLayout>
