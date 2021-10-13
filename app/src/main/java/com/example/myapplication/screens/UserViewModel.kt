@@ -1,15 +1,19 @@
-package com.example.myapplication.data
+package com.example.myapplication.screens
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.User
+import com.example.myapplication.data.UserDatabase
+import com.example.myapplication.data.UserRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class UserViewModel(application: Application):AndroidViewModel( application) {
+class UserViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: UserRepository
-    var user:User?=null
+    var user: User? = null
 
     init {
         val userDao = UserDatabase.getDatabase(application).userDao()
@@ -22,9 +26,9 @@ class UserViewModel(application: Application):AndroidViewModel( application) {
         }
     }
 
-    fun getUser(login: String, password: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-              user = repository.getUser(login, password)
-        }
+    suspend fun getUser(login: String, password: String) {
+        user = viewModelScope.async(Dispatchers.IO) {
+           repository.getUser(login, password)
+        }.await()
     }
 }

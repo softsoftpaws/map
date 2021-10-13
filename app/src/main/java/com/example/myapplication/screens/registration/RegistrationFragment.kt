@@ -1,4 +1,4 @@
-package com.example.myapplication.screens
+package com.example.myapplication.screens.registration
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.data.User
-import com.example.myapplication.data.UserViewModel
+import com.example.myapplication.screens.UserViewModel
 import com.example.myapplication.databinding.FragmentRegistrationBinding
 import com.google.android.material.textfield.TextInputEditText
 
