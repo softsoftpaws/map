@@ -10,4 +10,4 @@ data class User (
     val login: String,
     val mail:String,
     val password:String
-        )
+    )

@@ -22,6 +22,7 @@
         app:counterEnabled="true"
         app:counterMaxLength="20"
         tools:ignore="MissingConstraints">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputlog"
             android:layout_width="match_parent"

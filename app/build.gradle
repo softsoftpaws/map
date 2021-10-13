@@ -56,4 +56,6 @@ dependencies {
     api("androidx.room:room-runtime:$room_version")
     annotationProcessor "androidx.room:room-compiler:$room_version"
     kapt("androidx.room:room-compiler:$room_version")
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
 }
