@@ -18,20 +18,20 @@
         app:layout_constraintStart_toEndOf="@+id/loginBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
-        android:backgroundTint="@color/blue_1"/>
+        android:backgroundTint="@color/blueForText"/>
 
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/sign_in"
+        android:text="@string/sign_in_button"
         android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/registrBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
-        android:backgroundTint="@color/blue_1"/>
+        android:backgroundTint="@color/blueForText"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"

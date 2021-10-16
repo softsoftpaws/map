@@ -13,22 +13,17 @@ import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.data.User
 import com.example.myapplication.screens.UserViewModel
-import com.example.myapplication.databinding.FragmentRegistrationBinding
 import com.google.android.material.textfield.TextInputEditText
-
 
 class RegistrationFragment:Fragment() {
 
     private lateinit var mUserViewModel: UserViewModel
-    lateinit var binding: FragmentRegistrationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        binding = FragmentRegistrationBinding.inflate(layoutInflater,container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_registration, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,15 +32,15 @@ class RegistrationFragment:Fragment() {
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         fun validateEmailAddress(mail:String): Boolean {
-            return !mail.isNullOrBlank()
+            return mail.isNotBlank()
         }
 
         fun validateLog(log:String):Boolean{
-            return !log.isNullOrBlank()
+            return log.isNotBlank()
         }
 
         fun validatePass(pass:String, pass2:String): Boolean {
-            return !pass.isNullOrBlank() && !pass2.isNullOrBlank() && pass == pass2
+            return pass.isNotBlank() && pass2.isNotBlank() && pass == pass2
         }
 
         fun validateCheck(): Boolean {
@@ -77,11 +72,4 @@ class RegistrationFragment:Fragment() {
             }
         }
     }
-    }
-
-
-
-
-
-
-
+}

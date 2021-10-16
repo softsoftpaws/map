@@ -10,6 +10,8 @@
     <string name="mail">E-mail</string>
     <string name="password">Пароль</string>
     <string name="sign_in">Вход</string>
+    <string name="sign_in_button">Вход</string>
+    <string name="log_out">Выйти</string>
 
 
 </resources>
