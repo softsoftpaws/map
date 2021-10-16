@@ -12,21 +12,19 @@ class MapActivity : AppCompatActivity() {
 
     lateinit var sharedPreferences: SharedPreferences
 
+    fun transition(){
+        val intent2 = Intent(this, RegistrationLoginActivity::class.java)
+        startActivity(intent2)
+    }
+    fun deleteData(){
+        val editor:SharedPreferences.Editor = sharedPreferences.edit()
+        editor.clear().apply()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
 
         sharedPreferences = getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
-
-        fun transition(){
-            val intent2 = Intent(this, RegistrationLoginActivity::class.java)
-            startActivity(intent2)
-        }
-
-        fun deleteData(){
-            val editor:SharedPreferences.Editor = sharedPreferences.edit()
-            editor.clear().apply()
-        }
 
         findViewById<Button>(R.id.logOut).setOnClickListener {
             transition()
