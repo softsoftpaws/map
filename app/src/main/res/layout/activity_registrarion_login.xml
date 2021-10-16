@@ -13,10 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/registration"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/loginBtn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:backgroundTint="@color/blue_1"/>
 
     <Button
         android:id="@+id/loginBtn"
@@ -24,10 +26,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/sign_in"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/registrBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:backgroundTint="@color/blue_1"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"

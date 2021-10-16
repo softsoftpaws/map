@@ -21,7 +21,7 @@ import com.google.android.material.textfield.TextInputEditText
 class LoginFragment : Fragment() {
 
     lateinit var binding: FragmentLoginBinding
-    lateinit var mUserViewModel2: UserViewModel
+    private lateinit var userViewModel: UserViewModel
     lateinit var sharedPreferences: SharedPreferences
     var isRemembered = false
 
@@ -35,42 +35,40 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val context = requireContext()
 
-        mUserViewModel2 = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         sharedPreferences = requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         isRemembered = sharedPreferences.getBoolean("CHECKBOX", false)
 
-        fun checkLogin(){
-            if (isRemembered){
-                val intent2 = Intent(activity, MapActivity::class.java)
-                startActivity(intent2);
-            }
+        fun transition(){
+            val intent = Intent(activity, MapActivity::class.java)
+            startActivity(intent)
         }
-        checkLogin()
+
+        fun checkLogin(){
+            if (isRemembered) transition()
+        }
 
         fun saveData(login:String, password:String){
-
             val editor:SharedPreferences.Editor = sharedPreferences.edit()
             editor.putString("LOGIN", login)
             editor.putString("PASSWORD", password)
             editor.putBoolean("CHECKBOX", true)
             editor.apply()
-
-            val intent = Intent(activity, MapActivity::class.java)
-            startActivity(intent)
+            transition()
         }
+
+        checkLogin()
 
         view.findViewById<Button>(R.id.enter).setOnClickListener {
             val log = view.findViewById<TextInputEditText>(R.id.log_et_log).text.toString().trim()
             val pass = view.findViewById<TextInputEditText>(R.id.log_et_pass).text.toString().trim()
 
             lifecycleScope.launchWhenResumed {
-                mUserViewModel2.getUser(log, pass)
-                val userEntity = mUserViewModel2.user
+                userViewModel.getUser(log, pass)
+                val userEntity = userViewModel.user
                 if (userEntity != null) {
                         saveData(log,pass)
-
                 } else {
                     Toast.makeText(context, "Пользователь не найден", Toast.LENGTH_LONG).show()
                 }
