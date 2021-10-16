@@ -14,13 +14,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.MapActivity
 import com.example.myapplication.R
-import com.example.myapplication.databinding.FragmentLoginBinding
 import com.example.myapplication.screens.UserViewModel
 import com.google.android.material.textfield.TextInputEditText
 
 class LoginFragment : Fragment() {
 
-    lateinit var binding: FragmentLoginBinding
     private lateinit var userViewModel: UserViewModel
     lateinit var sharedPreferences: SharedPreferences
     var isRemembered = false
@@ -29,8 +27,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,7 +52,6 @@ class LoginFragment : Fragment() {
             editor.putString("PASSWORD", password)
             editor.putBoolean("CHECKBOX", true)
             editor.apply()
-            transition()
         }
 
         checkLogin()
@@ -68,7 +64,8 @@ class LoginFragment : Fragment() {
                 userViewModel.getUser(log, pass)
                 val userEntity = userViewModel.user
                 if (userEntity != null) {
-                        saveData(log,pass)
+                    saveData(log,pass)
+                    transition()
                 } else {
                     Toast.makeText(context, "Пользователь не найден", Toast.LENGTH_LONG).show()
                 }
