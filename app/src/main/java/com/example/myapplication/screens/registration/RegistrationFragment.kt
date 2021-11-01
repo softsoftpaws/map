@@ -19,6 +19,26 @@ class RegistrationFragment:Fragment() {
 
     private lateinit var mUserViewModel: UserViewModel
 
+    private fun validateEmailAddress(mail:String): Boolean {
+        return mail.isNotBlank()
+    }
+
+    private fun validateLog(log:String):Boolean{
+        return log.isNotBlank()
+    }
+
+    private fun validatePass(pass:String, pass2:String): Boolean {
+        return pass.isNotBlank() && pass2.isNotBlank() && pass == pass2
+    }
+
+    private fun validateCheck(): Boolean {
+        return view?.findViewById<Switch>(R.id.switch1)!!.isChecked
+    }
+
+    private fun result(log:String, mail:String, pass:String, pass2:String): Boolean {
+        return validateLog(log) && validateEmailAddress(mail) && validatePass(pass, pass2)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,25 +51,7 @@ class RegistrationFragment:Fragment() {
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        fun validateEmailAddress(mail:String): Boolean {
-            return mail.isNotBlank()
-        }
 
-        fun validateLog(log:String):Boolean{
-            return log.isNotBlank()
-        }
-
-        fun validatePass(pass:String, pass2:String): Boolean {
-            return pass.isNotBlank() && pass2.isNotBlank() && pass == pass2
-        }
-
-        fun validateCheck(): Boolean {
-            return view.findViewById<Switch>(R.id.switch1).isChecked
-        }
-
-        fun result(log:String, mail:String, pass:String, pass2:String): Boolean {
-            return validateLog(log) && validateEmailAddress(mail) && validatePass(pass, pass2)
-        }
         view.findViewById<Button>(R.id.regbtn).setOnClickListener {
             val log = view.findViewById<TextInputEditText>(R.id.inputlog).text.toString().trim()
             val mail = view.findViewById<TextInputEditText>(R.id.inputmail).text.toString().trim()

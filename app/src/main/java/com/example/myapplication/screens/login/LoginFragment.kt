@@ -34,25 +34,9 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        sharedPreferences = requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        sharedPreferences =
+            requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         isRemembered = sharedPreferences.getBoolean("CHECKBOX", false)
-
-        fun transition(){
-            val intent = Intent(activity, MapActivity::class.java)
-            startActivity(intent)
-        }
-
-        fun checkLogin(){
-            if (isRemembered) transition()
-        }
-
-        fun saveData(login:String, password:String){
-            val editor:SharedPreferences.Editor = sharedPreferences.edit()
-            editor.putString("LOGIN", login)
-            editor.putString("PASSWORD", password)
-            editor.putBoolean("CHECKBOX", true)
-            editor.apply()
-        }
 
         checkLogin()
 
@@ -64,12 +48,29 @@ class LoginFragment : Fragment() {
                 userViewModel.getUser(log, pass)
                 val userEntity = userViewModel.user
                 if (userEntity != null) {
-                    saveData(log,pass)
+                    saveData(log, pass)
                     transition()
                 } else {
                     Toast.makeText(context, "Пользователь не найден", Toast.LENGTH_LONG).show()
                 }
             }
         }
+    }
+
+    private fun transition() {
+        val intent = Intent(activity, MapActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun checkLogin() {
+        if (isRemembered) transition()
+    }
+
+    private fun saveData(login: String, password: String) {
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putString("LOGIN", login)
+        editor.putString("PASSWORD", password)
+        editor.putBoolean("CHECKBOX", true)
+        editor.apply()
     }
 }

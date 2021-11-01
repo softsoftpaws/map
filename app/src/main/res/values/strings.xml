@@ -12,4 +12,24 @@
     <string name="sign_in">Вход</string>
     <string name="sign_in_button">Вход</string>
     <string name="log_out">Выйти</string>
+    <string name="map">Карта</string>
+    <string name="profile">Профиль</string>
+    <string name="place">Места</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="place_name">Название объекта</string>
+    <string name="place_type">Тип объекта</string>
+    <string name="place_opening_days">Рабочие дни</string>
+    <string name="place_site">Сайт</string>
+    <string name="place_phone">Телефон</string>
+    <string name="place_address">Адрес</string>
+    <string name="place_comment">Коментарий</string>
+    <string name="place_save">Сохранить</string>
+    <string name="make_place">Добавить объект на карту</string>
+    <string name="place_image">Выбрать изображение</string>
+
+    <string name="info">Информация</string>
+
+
 </resources>

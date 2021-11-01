@@ -12,14 +12,6 @@ class MapActivity : AppCompatActivity() {
 
     lateinit var sharedPreferences: SharedPreferences
 
-    fun transition(){
-        val intent2 = Intent(this, RegistrationLoginActivity::class.java)
-        startActivity(intent2)
-    }
-    fun deleteData(){
-        val editor:SharedPreferences.Editor = sharedPreferences.edit()
-        editor.clear().apply()
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
@@ -30,5 +22,15 @@ class MapActivity : AppCompatActivity() {
             transition()
             deleteData()
         }
+    }
+
+    private fun transition() {
+        val intent2 = Intent(this, RegistrationLoginActivity::class.java)
+        startActivity(intent2)
+    }
+
+    private fun deleteData() {
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.clear().apply()
     }
 }
