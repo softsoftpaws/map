@@ -30,7 +30,6 @@ class RegistrationFragment : Fragment() {
             val pass = view.findViewById<TextInputEditText>(R.id.inputpass).text.toString().trim()
             val pass2 = view.findViewById<TextInputEditText>(R.id.inputpass2).text.toString().trim()
 
-
             if (validateCheck() && result(log, mail, pass, pass2)) {
                 val user = User(0, log, mail, pass) //создание объекта
                 mUserViewModel.addUser(user) //добавление в бд
