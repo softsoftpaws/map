@@ -1,4 +1,4 @@
-package com.example.myapplication.data
+package com.example.myapplication.data.userData
 
 class UserRepository(private val userDao: UserDao) {
 

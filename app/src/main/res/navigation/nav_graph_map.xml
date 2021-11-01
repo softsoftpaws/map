@@ -8,19 +8,54 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.myapplication.screens.profile.ProfileFragment"
-        android:label="profile_fragment"
+        android:label="Profile"
         tools:layout="@layout/profile_fragment" />
 
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.myapplication.screens.map.MapsFragment"
-        android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" />
+        android:label="Map"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_mapsFragment_to_placeFragment"
+            app:destination="@id/placeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/markerFragment"
         android:name="com.example.myapplication.screens.marker.MarkerFragment"
-        android:label="marker_fragment"
+        android:label="Places"
         tools:layout="@layout/marker_fragment" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.myapplication.screens.addInfo.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <argument
+            android:name="lat"
+            app:argType="string" />
+        <argument
+            android:name="long"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/placeFragment"
+        android:name="com.example.myapplication.screens.place.PlaceFragment"
+        android:label="fragment_place"
+        tools:layout="@layout/fragment_place" >
+        <action
+            android:id="@+id/action_placeFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <argument
+            android:name="placeName"
+            app:argType="string"/>
+    </fragment>
 
 </navigation>

@@ -3,9 +3,9 @@ package com.example.myapplication.screens
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.User
-import com.example.myapplication.data.UserDatabase
-import com.example.myapplication.data.UserRepository
+import com.example.myapplication.data.AppDatabase
+import com.example.myapplication.data.userData.User
+import com.example.myapplication.data.userData.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -16,7 +16,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     var user: User? = null
 
     init {
-        val userDao = UserDatabase.getDatabase(application).userDao()
+        val userDao = AppDatabase.getDatabase(application).userDao()
         repository = UserRepository(userDao)
     }
 

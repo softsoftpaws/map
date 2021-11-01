@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
-import com.example.myapplication.data.User
+import com.example.myapplication.data.userData.User
 import com.example.myapplication.screens.UserViewModel
 import com.google.android.material.textfield.TextInputEditText
 
