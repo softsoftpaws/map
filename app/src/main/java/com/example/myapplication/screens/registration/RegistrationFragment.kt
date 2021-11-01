@@ -17,6 +17,13 @@ import com.google.android.material.textfield.TextInputEditText
 
 class RegistrationFragment : Fragment() {
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_registration, container, false)
+    }
+
     private lateinit var mUserViewModel: UserViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,12 +70,5 @@ class RegistrationFragment : Fragment() {
 
     private fun result(log: String, mail: String, pass: String, pass2: String): Boolean {
         return validateLog(log) && validateEmailAddress(mail) && validatePass(pass, pass2)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_registration, container, false)
     }
 }
