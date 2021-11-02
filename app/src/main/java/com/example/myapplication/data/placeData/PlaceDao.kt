@@ -11,10 +11,12 @@ interface PlaceDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertPlace(place: Place)
 
-    // Get the newest destination
     @Query("SELECT * FROM 'place_table'")
-     fun getPlaces(): List<Place>
+    fun getPlaces(): List<Place>
 
     @Query("SELECT * FROM place_table u WHERE u.object_name=:object_name")
-    suspend fun getPlace(object_name:String ): Place
+    suspend fun getPlace(object_name: String): Place
+
+    @Query("DELETE FROM place_table WHERE object_name =:object_name")
+    suspend fun deletePlace(object_name: String)
 }

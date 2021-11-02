@@ -43,6 +43,7 @@ class InfoFragment : Fragment() {
             val phone = view.findViewById<TextInputEditText>(R.id.place_phone_edit).text.toString().trim()
             val site = view.findViewById<TextInputEditText>(R.id.place_site_edit).text.toString().trim()
             val comment = view.findViewById<TextInputEditText>(R.id.place_comment_edit).text.toString().trim()
+
             val args: InfoFragmentArgs by navArgs()
             val lat = args.lat.toDouble()
             val long = args.long.toDouble()
@@ -51,7 +52,6 @@ class InfoFragment : Fragment() {
             if (validate(name, type)) {
                 mMapViewModel.insertPlace(place)
                 findNavController().navigate(R.id.action_infoFragment_to_mapsFragment)
-                Toast.makeText(context, "$name, $type, $days, $phone, $site, $comment, $lat, $long", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(context, "Называние объекта и тип объекта обязательны к заполнению", Toast.LENGTH_LONG).show()
             }

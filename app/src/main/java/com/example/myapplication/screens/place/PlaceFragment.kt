@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
 import com.example.myapplication.screens.MapViewModel
@@ -29,8 +31,6 @@ class PlaceFragment : Fragment() {
         val args: PlaceFragmentArgs by navArgs()
         val placeName = args.placeName
 
-    //Toast.makeText(context, "$placeName", Toast.LENGTH_LONG).show()
-
         lifecycleScope.launchWhenStarted {
             mMapViewModel.getPlace(placeName)
             val placeEntity = mMapViewModel.place
@@ -40,7 +40,11 @@ class PlaceFragment : Fragment() {
             view.findViewById<TextView>(R.id.days).text = placeEntity?.opening_days
             view.findViewById<TextView>(R.id.phone).text = placeEntity?.phone
             view.findViewById<TextView>(R.id.site).text = placeEntity?.site
+        }
 
+        view.findViewById<Button>(R.id.deletePlace).setOnClickListener {
+            mMapViewModel.deletePlace(placeName)
+            findNavController().navigate(R.id.action_placeFragment_to_mapsFragment)
         }
     }
 }

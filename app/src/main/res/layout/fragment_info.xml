@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.addInfo.InfoFragment">
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/make_place"
@@ -24,18 +25,21 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/place_name"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@id/make_place">
+        android:hint="@string/place_name"
+        app:layout_constraintTop_toBottomOf="@id/make_place"
+        tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/place_name_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="20"
-            android:maxLines="1" />
+            android:maxLength="30"
+            android:maxLines="1"
+            tools:layout_editor_absoluteX="49dp"
+            tools:layout_editor_absoluteY="212dp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -43,9 +47,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/place_type"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:hint="@string/place_type"
         app:layout_constraintTop_toBottomOf="@id/place_name">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -61,16 +65,16 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/place_opening_days"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:hint="@string/place_opening_days"
         app:layout_constraintTop_toBottomOf="@id/place_type">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/place_opening_days_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="20"
+            android:maxLength="30"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,16 +83,17 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/place_phone"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:hint="@string/place_phone"
         app:layout_constraintTop_toBottomOf="@id/place_opening_days">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/place_phone_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="20"
+            android:inputType="number"
+            android:maxLength="12"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,16 +102,16 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/place_site"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:hint="@string/place_site"
         app:layout_constraintTop_toBottomOf="@id/place_phone">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/place_site_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="20"
+            android:maxLength="40"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,17 +120,19 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/place_comment"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:hint="@string/place_comment"
         app:layout_constraintTop_toBottomOf="@id/place_site">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/place_comment_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="20"
-            android:maxLines="1" />
+            android:maxLength="60"
+            tools:layout_editor_absoluteX="34dp"
+            tools:layout_editor_absoluteY="253dp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -134,7 +141,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-
         android:layout_marginTop="7dp"
         android:layout_marginEnd="20dp"
         android:text="@string/place_image"
@@ -144,14 +150,12 @@
         app:layout_constraintTop_toBottomOf="@+id/place_comment" />
 
 
-
-
     <androidx.appcompat.widget.AppCompatButton
 
         android:id="@+id/place_save"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
-        android:layout_height="38dp"
+        android:layout_height="48dp"
         android:layout_marginTop="5dp"
         android:padding="0dp"
         android:text="@string/place_save"
@@ -160,7 +164,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/place_image" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

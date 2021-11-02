@@ -6,10 +6,15 @@ class PlaceRepository(private val placeDao: PlaceDao) {
         placeDao.insertPlace(place)
     }
 
-       fun getPlaces():List<Place> {
-          return placeDao.getPlaces()
+    fun getPlaces(): List<Place> {
+        return placeDao.getPlaces()
     }
-    suspend fun getPlace(object_name:String): Place {
+
+    suspend fun getPlace(object_name: String): Place {
         return placeDao.getPlace(object_name)
+    }
+
+    suspend fun deletePlace(object_name: String) {
+        placeDao.deletePlace(object_name)
     }
 }

@@ -102,7 +102,19 @@
         app:layout_constraintTop_toBottomOf="@+id/phone"
         app:drawableLeftCompat="@drawable/site" />
 
-
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/deletePlace"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="92dp"
+        android:text="@string/delete"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/site" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

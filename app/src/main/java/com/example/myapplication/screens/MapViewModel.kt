@@ -36,4 +36,10 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
             repository.getPlace(object_name)
         }.await()
     }
+
+     fun deletePlace(object_name: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deletePlace(object_name)
+        }
+    }
 }

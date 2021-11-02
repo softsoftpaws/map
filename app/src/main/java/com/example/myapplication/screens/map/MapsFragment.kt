@@ -46,7 +46,7 @@ class MapsFragment : Fragment() {
             }
         }
         googleMap.setOnMarkerClickListener { marker ->
-            place_name = marker.title
+            place_name = marker.title.toString()
             val action2 = MapsFragmentDirections.actionMapsFragmentToPlaceFragment(place_name)
             findNavController().navigate(action2)
             true
