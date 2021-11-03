@@ -19,14 +19,9 @@ class MapActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
 
         findViewById<Button>(R.id.logOut).setOnClickListener {
-            transition()
             deleteData()
+            startActivity(Intent(this, RegistrationLoginActivity::class.java))
         }
-    }
-
-    private fun transition() {
-        val intent2 = Intent(this, RegistrationLoginActivity::class.java)
-        startActivity(intent2)
     }
 
     private fun deleteData() {

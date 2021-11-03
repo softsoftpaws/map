@@ -28,7 +28,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
 
     suspend fun getUser(login: String, password: String) {
         user = viewModelScope.async(Dispatchers.IO) {
-           repository.getUser(login, password)
+            repository.getUser(login, password)
         }.await()
     }
 }

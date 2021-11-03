@@ -27,12 +27,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_login, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+        val loginView = inflater.inflate(R.layout.fragment_login, container, false)
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         sharedPreferences =
             requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
@@ -40,30 +35,32 @@ class LoginFragment : Fragment() {
 
         checkLogin()
 
-        view.findViewById<Button>(R.id.enter).setOnClickListener {
-            val log = view.findViewById<TextInputEditText>(R.id.log_et_log).text.toString().trim()
-            val pass = view.findViewById<TextInputEditText>(R.id.log_et_pass).text.toString().trim()
+        loginView.findViewById<Button>(R.id.enter).setOnClickListener {
+            val log =
+                loginView.findViewById<TextInputEditText>(R.id.log_et_log).text.toString().trim()
+            val pass =
+                loginView.findViewById<TextInputEditText>(R.id.log_et_pass).text.toString().trim()
 
             lifecycleScope.launchWhenResumed {
                 userViewModel.getUser(log, pass)
                 val userEntity = userViewModel.user
                 if (userEntity != null) {
                     saveData(log, pass)
-                    transition()
+                    transitionToMap()
                 } else {
                     Toast.makeText(context, "Пользователь не найден", Toast.LENGTH_LONG).show()
                 }
             }
         }
+        return loginView
     }
 
-    private fun transition() {
-        val intent = Intent(activity, MapActivity::class.java)
-        startActivity(intent)
+    private fun transitionToMap() {
+        startActivity(Intent(context, MapActivity::class.java))
     }
 
     private fun checkLogin() {
-        if (isRemembered) transition()
+        if (isRemembered) transitionToMap()
     }
 
     private fun saveData(login: String, password: String) {

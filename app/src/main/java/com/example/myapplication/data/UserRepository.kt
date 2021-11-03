@@ -1,6 +1,6 @@
 package com.example.myapplication.data
 
-class UserRepository(private val userDao:UserDao) {
+class UserRepository(private val userDao: UserDao) {
 
     suspend fun addUser(user: User) {
         userDao.addUser(user)
