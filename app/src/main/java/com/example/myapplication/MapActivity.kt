@@ -14,15 +14,12 @@ class MapActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
 
-//        Room.databaseBuilder(applicationContext, PlaceDatabase::class.java, "place_table")
-//            .addMigrations(PlaceDatabase.MIGRATION_1_2).build()
-
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
-
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerViewMap) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerViewMap) as NavHostFragment
         val navController = navHostFragment.navController
         val appBarConfiguration =
-            AppBarConfiguration(setOf(R.id.mapsFragment, R.id.markerFragment, R.id.profileFragment))
+            AppBarConfiguration(setOf(R.id.mapFragment, R.id.markerFragment, R.id.profileFragment))
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

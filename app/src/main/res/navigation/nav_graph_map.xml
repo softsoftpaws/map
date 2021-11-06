@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_map"
-    app:startDestination="@id/mapsFragment">
+    app:startDestination="@id/mapFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -12,15 +12,15 @@
         tools:layout="@layout/profile_fragment" />
 
     <fragment
-        android:id="@+id/mapsFragment"
-        android:name="com.example.myapplication.screens.map.MapsFragment"
+        android:id="@+id/mapFragment"
+        android:name="com.example.myapplication.screens.map.MapFragment"
         android:label="Map"
-        tools:layout="@layout/fragment_maps" >
+        tools:layout="@layout/fragment_map" >
         <action
-            android:id="@+id/action_mapsFragment_to_infoFragment"
+            android:id="@+id/action_mapFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
         <action
-            android:id="@+id/action_mapsFragment_to_placeFragment"
+            android:id="@+id/action_mapFragment_to_placeFragment"
             app:destination="@id/placeFragment" />
     </fragment>
 
@@ -35,8 +35,8 @@
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" >
         <action
-            android:id="@+id/action_infoFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
+            android:id="@+id/action_infoFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
         <argument
             android:name="lat"
             app:argType="string" />
@@ -51,8 +51,8 @@
         android:label="fragment_place"
         tools:layout="@layout/fragment_place" >
         <action
-            android:id="@+id/action_placeFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
+            android:id="@+id/action_placeFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
         <argument
             android:name="placeName"
             app:argType="string"/>

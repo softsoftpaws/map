@@ -7,7 +7,7 @@
         android:title="@string/profile" />
 
     <item
-        android:id="@+id/mapsFragment"
+        android:id="@+id/mapFragment"
         android:icon="@drawable/ic_map"
         android:title="@string/map" />
 

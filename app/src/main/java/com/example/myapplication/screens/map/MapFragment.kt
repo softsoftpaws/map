@@ -19,11 +19,11 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsFragment : Fragment() {
+class MapFragment : Fragment() {
     private lateinit var mMapViewModel: MapViewModel
     lateinit var sharedPreferences: SharedPreferences
     private lateinit var marker: Marker
-    private lateinit var place_name:String
+    private lateinit var place_name: String
 
     private val callback = OnMapReadyCallback { googleMap ->
 
@@ -31,7 +31,7 @@ class MapsFragment : Fragment() {
             googleMap.animateCamera(CameraUpdateFactory.newLatLng(latlng))
             val lat = latlng.latitude.toString()
             val long = latlng.longitude.toString()
-            val action = MapsFragmentDirections.actionMapsFragmentToInfoFragment(lat, long)
+            val action = MapFragmentDirections.actionMapFragmentToInfoFragment(lat, long)
             findNavController().navigate(action)
         }
 
@@ -47,7 +47,7 @@ class MapsFragment : Fragment() {
         }
         googleMap.setOnMarkerClickListener { marker ->
             place_name = marker.title.toString()
-            val action2 = MapsFragmentDirections.actionMapsFragmentToPlaceFragment(place_name)
+            val action2 = MapFragmentDirections.actionMapFragmentToPlaceFragment(place_name)
             findNavController().navigate(action2)
             true
         }
@@ -56,16 +56,17 @@ class MapsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_maps, container, false)
+        return inflater.inflate(R.layout.fragment_map, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         val mapAsync = mapFragment?.getMapAsync(callback)
-        sharedPreferences = requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
-        mMapViewModel = ViewModelProvider(this).get(MapViewModel::class.java)
+        sharedPreferences =
+            requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
     }
 }

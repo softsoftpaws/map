@@ -25,7 +25,7 @@ class LoginFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         val loginView = inflater.inflate(R.layout.fragment_login, container, false)
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)

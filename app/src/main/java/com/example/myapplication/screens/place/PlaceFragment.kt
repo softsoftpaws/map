@@ -20,7 +20,7 @@ class PlaceFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(R.layout.fragment_place, container, false)
     }
@@ -44,7 +44,7 @@ class PlaceFragment : Fragment() {
 
         view.findViewById<Button>(R.id.deletePlace).setOnClickListener {
             mMapViewModel.deletePlace(placeName)
-            findNavController().navigate(R.id.action_placeFragment_to_mapsFragment)
+            findNavController().navigate(R.id.action_placeFragment_to_mapFragment)
         }
     }
 }
