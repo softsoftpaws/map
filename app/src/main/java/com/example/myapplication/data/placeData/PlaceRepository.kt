@@ -1,6 +1,10 @@
 package com.example.myapplication.data.placeData
 
+import androidx.lifecycle.LiveData
+
 class PlaceRepository(private val placeDao: PlaceDao) {
+
+    val readAllData: LiveData<List<Place>> = placeDao.readAllData()
 
     suspend fun insertPlace(place: Place) {
         placeDao.insertPlace(place)

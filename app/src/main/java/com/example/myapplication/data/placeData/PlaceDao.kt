@@ -1,5 +1,6 @@
 package com.example.myapplication.data.placeData
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -19,4 +20,7 @@ interface PlaceDao {
 
     @Query("DELETE FROM place_table WHERE object_name =:object_name")
     suspend fun deletePlace(object_name: String)
+
+    @Query("SELECT * FROM place_table ORDER BY id ASC")
+    fun readAllData(): LiveData<List<Place>>
 }

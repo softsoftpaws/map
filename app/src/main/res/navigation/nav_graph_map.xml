@@ -9,7 +9,7 @@
         android:id="@+id/profileFragment"
         android:name="com.example.myapplication.screens.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/profile_fragment" />
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/mapFragment"
@@ -26,9 +26,9 @@
 
     <fragment
         android:id="@+id/markerFragment"
-        android:name="com.example.myapplication.screens.marker.MarkerFragment"
+        android:name="com.example.myapplication.screens.listOfPlaces.PlaceListFragment"
         android:label="Places"
-        tools:layout="@layout/marker_fragment" />
+        tools:layout="@layout/fragment_place_list" />
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.myapplication.screens.addInfo.InfoFragment"
