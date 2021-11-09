@@ -22,28 +22,12 @@ class ProfileFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
-    }
-
-    fun transition() {
-        val intent2 = Intent(context, RegistrationLoginActivity::class.java)
-        startActivity(intent2)
-    }
-
-    fun deleteData() {
-        val editor: SharedPreferences.Editor = sharedPreferences.edit()
-        editor.clear().apply()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         sharedPreferences =
             requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
-
 
         val log = sharedPreferences.getString("LOGIN", "").toString()
         val pass = sharedPreferences.getString("PASSWORD", "").toString()
@@ -55,8 +39,11 @@ class ProfileFragment : Fragment() {
             view.findViewById<TextView>(R.id.mailText).text = userEntity?.mail
         }
         view.findViewById<Button>(R.id.exit).setOnClickListener {
-            transition()
-            deleteData()
+            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+            editor.clear().apply()
+            startActivity(Intent(context, RegistrationLoginActivity::class.java))
         }
+        return view
     }
+
 }

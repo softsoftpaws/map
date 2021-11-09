@@ -12,7 +12,7 @@
         android:title="@string/map" />
 
     <item
-        android:id="@+id/markerFragment"
+        android:id="@+id/placesFragment"
         android:icon="@drawable/ic_baseline_format_list_bulleted_24"
         android:title="@string/place" />
 

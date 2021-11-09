@@ -24,8 +24,8 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = placeList[position]
         holder.itemView.findViewById<TextView>(R.id.id_txt).text = currentItem.id.toString()
-        holder.itemView.findViewById<TextView>(R.id.placeName_txt).text = currentItem.object_type
-        holder.itemView.findViewById<TextView>(R.id.placeType_txt).text = currentItem.object_name
+        holder.itemView.findViewById<TextView>(R.id.placeName_txt).text = currentItem.object_name
+        holder.itemView.findViewById<TextView>(R.id.placeType_txt).text = currentItem.object_type
     }
 
     fun setData(place: List<Place>) {

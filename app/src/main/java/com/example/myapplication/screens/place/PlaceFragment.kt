@@ -22,12 +22,9 @@ class PlaceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_place, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_place, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        mMapViewModel = ViewModelProvider(this).get(MapViewModel::class.java)
+        mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
         val args: PlaceFragmentArgs by navArgs()
         val placeName = args.placeName
 
@@ -46,5 +43,6 @@ class PlaceFragment : Fragment() {
             mMapViewModel.deletePlace(placeName)
             findNavController().navigate(R.id.action_placeFragment_to_mapFragment)
         }
+        return view
     }
 }

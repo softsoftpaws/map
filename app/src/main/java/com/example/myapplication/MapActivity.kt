@@ -19,7 +19,7 @@ class MapActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerViewMap) as NavHostFragment
         val navController = navHostFragment.navController
         val appBarConfiguration =
-            AppBarConfiguration(setOf(R.id.mapFragment, R.id.markerFragment, R.id.profileFragment))
+            AppBarConfiguration(setOf(R.id.mapFragment, R.id.placesFragment, R.id.profileFragment))
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

@@ -16,14 +16,12 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 class MapFragment : Fragment() {
     private lateinit var mMapViewModel: MapViewModel
     lateinit var sharedPreferences: SharedPreferences
-    private lateinit var marker: Marker
-    private lateinit var place_name: String
+    private lateinit var placeName: String
 
     private val callback = OnMapReadyCallback { googleMap ->
 
@@ -31,8 +29,8 @@ class MapFragment : Fragment() {
             googleMap.animateCamera(CameraUpdateFactory.newLatLng(latlng))
             val lat = latlng.latitude.toString()
             val long = latlng.longitude.toString()
-            val action = MapFragmentDirections.actionMapFragmentToInfoFragment(lat, long)
-            findNavController().navigate(action)
+            findNavController().navigate(MapFragmentDirections.actionMapFragmentToInfoFragment(lat,
+                long))
         }
 
         lifecycleScope.launchWhenResumed {
@@ -46,9 +44,9 @@ class MapFragment : Fragment() {
             }
         }
         googleMap.setOnMarkerClickListener { marker ->
-            place_name = marker.title.toString()
-            val action2 = MapFragmentDirections.actionMapFragmentToPlaceFragment(place_name)
-            findNavController().navigate(action2)
+            placeName = marker.title.toString()
+            findNavController().navigate(MapFragmentDirections.actionMapFragmentToPlaceFragment(
+                placeName))
             true
         }
     }
@@ -58,15 +56,12 @@ class MapFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_map, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val view = inflater.inflate(R.layout.fragment_map, container, false)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         val mapAsync = mapFragment?.getMapAsync(callback)
         sharedPreferences =
             requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
+        return view
     }
 }

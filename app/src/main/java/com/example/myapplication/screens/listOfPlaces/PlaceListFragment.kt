@@ -29,6 +29,7 @@ class PlaceListFragment : Fragment() {
         mMapViewModel.readAllData.observe(viewLifecycleOwner, Observer { place ->
             adapter.setData(place)
         })
+
         return view
     }
 }

@@ -24,17 +24,9 @@ class InfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_info, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val view = inflater.inflate(R.layout.fragment_info, container, false)
 
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
-
-        fun validate(place_name: String, place_type: String): Boolean {
-            return place_name.isNotBlank() && place_type.isNotBlank()
-        }
 
         view.findViewById<AppCompatButton>(R.id.place_save).setOnClickListener {
             val name =
@@ -50,23 +42,26 @@ class InfoFragment : Fragment() {
                 view.findViewById<TextInputEditText>(R.id.place_site_edit).text.toString().trim()
             val comment =
                 view.findViewById<TextInputEditText>(R.id.place_comment_edit).text.toString().trim()
-
             val args: InfoFragmentArgs by navArgs()
             val lat = args.lat.toDouble()
             val long = args.long.toDouble()
+
             val place =
-                Place(0, name, type, days, phone, site, comment, lat, long) //создание объекта
+                Place(0, name, type, days, phone, site, comment, lat, long)
 
             if (validate(name, type)) {
                 mMapViewModel.insertPlace(place)
                 findNavController().navigate(R.id.action_infoFragment_to_mapFragment)
             } else {
                 Toast.makeText(
-                    context,
-                    "Называние объекта и тип объекта обязательны к заполнению",
-                    Toast.LENGTH_LONG
-                ).show()
+                    context, "Называние объекта и тип объекта обязательны к заполнению", Toast.LENGTH_LONG).show()
             }
         }
+
+        return view
+    }
+
+    private fun validate(place_name: String, place_type: String): Boolean {
+        return place_name.isNotBlank() && place_type.isNotBlank()
     }
 }
