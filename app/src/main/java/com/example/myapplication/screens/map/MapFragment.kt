@@ -23,6 +23,20 @@ class MapFragment : Fragment() {
     lateinit var sharedPreferences: SharedPreferences
     private lateinit var placeName: String
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_map, container, false)
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        val mapAsync = mapFragment?.getMapAsync(callback)
+        sharedPreferences =
+            requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
+        return view
+    }
+
     private val callback = OnMapReadyCallback { googleMap ->
 
         googleMap.setOnMapLongClickListener { latlng ->
@@ -49,19 +63,5 @@ class MapFragment : Fragment() {
                 placeName))
             true
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_map, container, false)
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        val mapAsync = mapFragment?.getMapAsync(callback)
-        sharedPreferences =
-            requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
-        mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
-        return view
     }
 }

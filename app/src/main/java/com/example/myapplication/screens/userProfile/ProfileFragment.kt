@@ -17,6 +17,7 @@ import com.example.myapplication.RegistrationLoginActivity
 import com.example.myapplication.screens.UserViewModel
 
 class ProfileFragment : Fragment() {
+
     private lateinit var mUserViewModel: UserViewModel
     lateinit var sharedPreferences: SharedPreferences
 
