@@ -47,8 +47,14 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
 //        val address = getAddress(lat, lng)
 //        Toast.makeText(context, address, Toast.LENGTH_LONG).show()
 
+
+
+
+
         return binding.root
     }
+
+
 
     override fun onMapReady(googleMap: GoogleMap) {
 
