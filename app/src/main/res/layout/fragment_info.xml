@@ -7,31 +7,31 @@
     tools:context=".screens.addInfo.InfoFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/make_place"
+        android:id="@+id/makePlaceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         android:text="@string/make_place"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/place_name"
+        app:layout_constraintBottom_toTopOf="@+id/placeName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/place_name"
+        android:id="@+id/placeName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:hint="@string/place_name"
-        app:layout_constraintTop_toBottomOf="@id/make_place"
+        app:layout_constraintTop_toBottomOf="@id/makePlaceText"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/place_name_edit"
+            android:id="@+id/placeNameEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:maxLength="30"
@@ -42,17 +42,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/place_type"
+        android:id="@+id/placeType"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:hint="@string/place_type"
-        app:layout_constraintTop_toBottomOf="@id/place_name">
+        app:layout_constraintTop_toBottomOf="@id/placeName">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/place_type_edit"
+            android:id="@+id/placeTypeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="20"
@@ -60,17 +60,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/place_opening_days"
+        android:id="@+id/placeOpeningDays"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:hint="@string/place_opening_days"
-        app:layout_constraintTop_toBottomOf="@id/place_type">
+        app:layout_constraintTop_toBottomOf="@id/placeType">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/place_opening_days_edit"
+            android:id="@+id/placeOpeningDaysEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="30"
@@ -78,17 +78,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/place_phone"
+        android:id="@+id/placePhone"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:hint="@string/place_phone"
-        app:layout_constraintTop_toBottomOf="@id/place_opening_days">
+        app:layout_constraintTop_toBottomOf="@id/placeOpeningDays">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/place_phone_edit"
+            android:id="@+id/placePhoneEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="number"
@@ -97,17 +97,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/place_site"
+        android:id="@+id/placeSite"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:hint="@string/place_site"
-        app:layout_constraintTop_toBottomOf="@id/place_phone">
+        app:layout_constraintTop_toBottomOf="@id/placePhone">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/place_site_edit"
+            android:id="@+id/placeSiteEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:maxLength="40"
@@ -115,17 +115,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/place_comment"
+        android:id="@+id/placeComment"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:hint="@string/place_comment"
-        app:layout_constraintTop_toBottomOf="@id/place_site">
+        app:layout_constraintTop_toBottomOf="@id/placeSite">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/place_comment_edit"
+            android:id="@+id/placeCommentEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:maxLength="60"
@@ -136,7 +136,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
 
-        android:id="@+id/place_image"
+        android:id="@+id/placeImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -146,11 +146,11 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/place_comment" />
+        app:layout_constraintTop_toBottomOf="@+id/placeComment" />
 
     <androidx.appcompat.widget.AppCompatButton
 
-        android:id="@+id/place_save"
+        android:id="@+id/placeSaveButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
@@ -161,6 +161,6 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/place_image" />
+        app:layout_constraintTop_toBottomOf="@+id/placeImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

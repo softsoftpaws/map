@@ -16,7 +16,7 @@
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/nameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageTime" />
 
     <TextView
-        android:id="@+id/type"
+        android:id="@+id/typeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -43,10 +43,10 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
     <TextView
-        android:id="@+id/info"
+        android:id="@+id/infoTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -59,10 +59,10 @@
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type" />
+        app:layout_constraintTop_toBottomOf="@+id/typeTextView" />
 
     <TextView
-        android:id="@+id/days"
+        android:id="@+id/daysTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -78,10 +78,10 @@
         app:drawableLeftCompat="@drawable/time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info" />
+        app:layout_constraintTop_toBottomOf="@+id/infoTextView" />
 
     <TextView
-        android:id="@+id/phone"
+        android:id="@+id/phoneTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -96,10 +96,10 @@
         android:textSize="17sp"
         app:drawableLeftCompat="@drawable/phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/days" />
+        app:layout_constraintTop_toBottomOf="@+id/daysTextView" />
 
     <TextView
-        android:id="@+id/site"
+        android:id="@+id/siteTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -114,10 +114,10 @@
         android:textSize="17sp"
         app:drawableLeftCompat="@drawable/site"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneTextView" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/deletePlace"
+        android:id="@+id/deletePlaceButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -128,6 +128,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/site" />
+        app:layout_constraintTop_toBottomOf="@+id/siteTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

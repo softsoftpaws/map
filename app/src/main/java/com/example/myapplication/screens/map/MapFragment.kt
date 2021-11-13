@@ -6,19 +6,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentMapBinding
 import com.example.myapplication.screens.MapViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PointOfInterest
 
-class MapFragment : Fragment() {
+class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener {
+
+    private lateinit var binding:FragmentMapBinding
     private lateinit var mMapViewModel: MapViewModel
     lateinit var sharedPreferences: SharedPreferences
     private lateinit var placeName: String
@@ -28,16 +34,25 @@ class MapFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_map, container, false)
+        binding = FragmentMapBinding.inflate(inflater,container,false)
+
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        val mapAsync = mapFragment?.getMapAsync(callback)
+        val mapAsync = mapFragment?.getMapAsync(this)
         sharedPreferences =
             requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
-        return view
+
+//        val lat = -7.316463
+//        val lng = 112.748348
+//        val address = getAddress(lat, lng)
+//        Toast.makeText(context, address, Toast.LENGTH_LONG).show()
+
+        return binding.root
     }
 
-    private val callback = OnMapReadyCallback { googleMap ->
+    override fun onMapReady(googleMap: GoogleMap) {
+
+        googleMap.setOnPoiClickListener(this)
 
         googleMap.setOnMapLongClickListener { latlng ->
             googleMap.animateCamera(CameraUpdateFactory.newLatLng(latlng))
@@ -64,4 +79,18 @@ class MapFragment : Fragment() {
             true
         }
     }
+
+    override fun onPoiClick(poi: PointOfInterest) {
+        Toast.makeText(context, """Clicked: ${poi.name}
+            Place ID:${poi.placeId}
+            Latitude:${poi.latLng.latitude} Longitude:${poi.latLng.longitude}""",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+    //    private fun getAddress(lat: Double, lng: Double): String {
+//        val geocoder = Geocoder(context)
+//        val list = geocoder.getFromLocation(lat, lng, 1)
+//        return list[0].getAddressLine(0)
+//    }
+
 }

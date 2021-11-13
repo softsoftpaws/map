@@ -4,15 +4,17 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.myapplication.databinding.ActivityMapBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MapActivity : AppCompatActivity() {
+    lateinit var bindingClass : ActivityMapBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_map)
+        bindingClass = ActivityMapBinding.inflate(layoutInflater)
+        setContentView(bindingClass.root)
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navHostFragment =
@@ -21,7 +23,8 @@ class MapActivity : AppCompatActivity() {
         val appBarConfiguration =
             AppBarConfiguration(setOf(R.id.mapFragment, R.id.placesFragment, R.id.profileFragment))
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        //setupActionBarWithNavController(navController, appBarConfiguration)
+        //setupActionBarWithNavController(appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }

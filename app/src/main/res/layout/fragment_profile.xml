@@ -7,7 +7,7 @@
     tools:context=".screens.profile.ProfileFragment">
 
     <TextView
-        android:id="@+id/Profile"
+        android:id="@+id/ProfileTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/loginTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -26,7 +26,7 @@
         android:text="@string/login"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Profile" />
+        app:layout_constraintTop_toBottomOf="@+id/ProfileTextView" />
 
     <TextView
         android:id="@+id/loginText"
@@ -36,12 +36,12 @@
         android:layout_marginTop="20dp"
         android:text="TextView"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/login"
-        app:layout_constraintTop_toBottomOf="@+id/Profile"
+        app:layout_constraintStart_toEndOf="@+id/loginTextView"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileTextView"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/mail"
+        android:id="@+id/mailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -49,7 +49,7 @@
         android:text="@string/mail"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/loginTextView" />
 
     <TextView
         android:id="@+id/mailText"
@@ -59,11 +59,11 @@
         android:layout_marginTop="20dp"
         android:text="TextView"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/mail"
+        app:layout_constraintStart_toEndOf="@+id/mailTextView"
         app:layout_constraintTop_toBottomOf="@+id/loginText" />
 
     <Button
-        android:id="@+id/exit"
+        android:id="@+id/exitButton"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

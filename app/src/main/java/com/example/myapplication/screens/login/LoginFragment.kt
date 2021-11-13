@@ -7,18 +7,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.MapActivity
-import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentLoginBinding
 import com.example.myapplication.screens.UserViewModel
-import com.google.android.material.textfield.TextInputEditText
 
 class LoginFragment : Fragment() {
 
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var userViewModel: UserViewModel
     lateinit var sharedPreferences: SharedPreferences
     var isRemembered = false
@@ -27,19 +26,19 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val loginView = inflater.inflate(R.layout.fragment_login, container, false)
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
+
+        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
         sharedPreferences =
             requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         isRemembered = sharedPreferences.getBoolean("CHECKBOX", false)
 
         checkLogin()
 
-        loginView.findViewById<Button>(R.id.enter).setOnClickListener {
-            val log =
-                loginView.findViewById<TextInputEditText>(R.id.log_et_log).text.toString().trim()
-            val pass =
-                loginView.findViewById<TextInputEditText>(R.id.log_et_pass).text.toString().trim()
+        binding.enterButton.setOnClickListener {
+
+            val log = binding.logEditText.text.toString().trim()
+            val pass = binding.passEditText.text.toString().trim()
 
             lifecycleScope.launchWhenResumed {
                 userViewModel.getUser(log, pass)
@@ -52,7 +51,7 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-        return loginView
+        return binding.root
     }
 
     private fun transitionToMap() {

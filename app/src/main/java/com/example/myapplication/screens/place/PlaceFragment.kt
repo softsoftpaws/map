@@ -4,27 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentPlaceBinding
 import com.example.myapplication.screens.MapViewModel
 
 class PlaceFragment : Fragment() {
 
+    private lateinit var binding:FragmentPlaceBinding
     private lateinit var mMapViewModel: MapViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_place, container, false)
-
+        binding = FragmentPlaceBinding.inflate(layoutInflater, container, false)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
+
         val args: PlaceFragmentArgs by navArgs()
         val placeName = args.placeName
 
@@ -32,17 +32,17 @@ class PlaceFragment : Fragment() {
             mMapViewModel.getPlace(placeName)
             val placeEntity = mMapViewModel.place
 
-            view.findViewById<TextView>(R.id.name).text = placeEntity?.object_name
-            view.findViewById<TextView>(R.id.type).text = placeEntity?.object_type
-            view.findViewById<TextView>(R.id.days).text = placeEntity?.opening_days
-            view.findViewById<TextView>(R.id.phone).text = placeEntity?.phone
-            view.findViewById<TextView>(R.id.site).text = placeEntity?.site
+            binding.nameTextView.text = placeEntity?.object_name
+            binding.typeTextView.text = placeEntity?.object_type
+            binding.daysTextView.text = placeEntity?.opening_days
+            binding.phoneTextView.text = placeEntity?.phone
+            binding.siteTextView.text = placeEntity?.site
         }
 
-        view.findViewById<Button>(R.id.deletePlace).setOnClickListener {
+        binding.deletePlaceButton.setOnClickListener {
             mMapViewModel.deletePlace(placeName)
             findNavController().navigate(R.id.action_placeFragment_to_mapFragment)
         }
-        return view
+        return binding.root
     }
 }

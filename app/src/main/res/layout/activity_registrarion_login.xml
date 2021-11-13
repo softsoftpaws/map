@@ -7,7 +7,7 @@
     tools:context="RegistrationLoginActivity">
 
     <Button
-        android:id="@+id/registrBtn"
+        android:id="@+id/registrationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -17,11 +17,11 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/loginBtn"
+        app:layout_constraintStart_toEndOf="@+id/loginButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -29,7 +29,7 @@
         android:minWidth="145dp"
         android:text="@string/sign_in_button"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/registrBtn"
+        app:layout_constraintEnd_toStartOf="@+id/registrationButton"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,8 +44,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registrBtn"
+        app:layout_constraintTop_toBottomOf="@+id/registrationButton"
         app:navGraph="@navigation/nav_graph_application" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
