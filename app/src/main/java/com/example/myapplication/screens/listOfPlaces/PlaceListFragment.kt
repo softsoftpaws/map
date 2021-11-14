@@ -13,22 +13,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentPlaceListBinding
 import com.example.myapplication.screens.MapViewModel
-
+import kotlinx.android.synthetic.main.fragment_place_list.*
 
 class PlaceListFragment : Fragment() {
 
-    private lateinit var binding:FragmentPlaceListBinding
+    private lateinit var binding: FragmentPlaceListBinding
     private lateinit var mMapViewModel: MapViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
-
+    ): View {
         binding = FragmentPlaceListBinding.inflate(inflater, container, false)
-
         val adapter = ListAdapter()
-        val recyclerView: RecyclerView = binding.recyclerview
+
+        binding.swipeList.setOnRefreshListener {
+            swipeList.isRefreshing = false
+        }
+        val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -38,7 +40,7 @@ class PlaceListFragment : Fragment() {
             adapter.setData(place)
         })
 
-        adapter.onItemClick = {currentItem->
+        adapter.onItemClick = { currentItem ->
             val placeName = currentItem.object_name
             findNavController().navigate(PlaceListFragmentDirections.actionPlacesFragmentToPlaceFragment(
                 placeName))

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="RegistrationLoginActivity">
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
@@ -15,8 +14,8 @@
         android:background="@drawable/button_login_style"
         android:minWidth="145dp"
         android:text="@string/sign_in_button"
-        android:textSize="14sp"
         android:textColor="@color/white"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/registrationButton"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,16 +26,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:minWidth="145dp"
         android:background="@drawable/button_registration_style"
+        android:minWidth="145dp"
         android:text="@string/registration"
-        android:textSize="14sp"
         android:textColor="@color/purple"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@+id/loginButton"
         app:layout_constraintTop_toTopOf="parent" />
-<!--        //android:backgroundTint="@color/blueForText"-->
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"

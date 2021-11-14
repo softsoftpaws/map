@@ -1,0 +1,5 @@
+<resources>
+    <style name="SwitchTheme" parent="Theme.AppCompat.Light">
+        <item name="android:colorControlActivated">@color/purple</item>
+    </style>
+</resources>

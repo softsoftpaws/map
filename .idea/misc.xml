@@ -12,12 +12,19 @@
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/ic_baseline_format_list_bulleted_24.xml" value="0.3472222222222222" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.25" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3314814814814815" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/ic_map.xml" value="0.25" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/ic_place_.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/list_of_users_style.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/pressed_button.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/pressed_button_login.xml" value="0.3828125" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/pressed_button_registration.xml" value="0.3828125" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/site.xml" value="0.3314814814814815" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/textview_down.xml" value="0.3769230769230769" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/textview_down_left.xml" value="0.3769230769230769" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/textview_up.xml" value="0.3769230769230769" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/textview_up_left.xml" value="0.38871794871794874" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/unpressed_button.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/unpressed_button_login.xml" value="0.3828125" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/unpressed_button_registration.xml" value="0.3828125" />
@@ -33,13 +40,15 @@
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_map.xml" value="0.35688405797101447" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_maps.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_place.xml" value="0.33" />
-        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_place_list.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_place_list.xml" value="0.1" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_profile.xml" value="0.34375" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_registration.xml" value="0.33" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_splash.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/marker_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/profile_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3769230769230769" />
       </map>
     </option>
   </component>

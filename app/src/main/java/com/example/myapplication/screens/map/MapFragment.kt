@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -22,19 +23,21 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PointOfInterest
 
-class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener {
+class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener,
+    ActivityCompat.OnRequestPermissionsResultCallback {
 
-    private lateinit var binding:FragmentMapBinding
+    private lateinit var binding: FragmentMapBinding
     private lateinit var mMapViewModel: MapViewModel
     lateinit var sharedPreferences: SharedPreferences
     private lateinit var placeName: String
+    private lateinit var mMap: GoogleMap
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        binding = FragmentMapBinding.inflate(inflater,container,false)
+        binding = FragmentMapBinding.inflate(inflater, container, false)
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         val mapAsync = mapFragment?.getMapAsync(this)
@@ -42,22 +45,11 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
             requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
 
-//        val lat = -7.316463
-//        val lng = 112.748348
-//        val address = getAddress(lat, lng)
-//        Toast.makeText(context, address, Toast.LENGTH_LONG).show()
-
-
-
-
-
         return binding.root
     }
 
-
-
     override fun onMapReady(googleMap: GoogleMap) {
-
+        mMap = googleMap
         googleMap.setOnPoiClickListener(this)
 
         googleMap.setOnMapLongClickListener { latlng ->
@@ -78,6 +70,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
                 )
             }
         }
+
         googleMap.setOnMarkerClickListener { marker ->
             placeName = marker.title.toString()
             findNavController().navigate(MapFragmentDirections.actionMapFragmentToPlaceFragment(
@@ -93,10 +86,4 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
             Toast.LENGTH_SHORT
         ).show()
     }
-    //    private fun getAddress(lat: Double, lng: Double): String {
-//        val geocoder = Geocoder(context)
-//        val list = geocoder.getFromLocation(lat, lng, 1)
-//        return list[0].getAddressLine(0)
-//    }
-
 }

@@ -46,7 +46,9 @@ class RegistrationFragment : Fragment() {
             else if (pass != pass2)
                 Toast.makeText(context, "Пароли не совпадают", Toast.LENGTH_LONG).show()
             else if (pass.length < 6)
-                Toast.makeText(context, "Пароль должен содержать не менее 6 символов", Toast.LENGTH_LONG).show()
+                Toast.makeText(context,
+                    "Пароль должен содержать не менее 6 символов",
+                    Toast.LENGTH_LONG).show()
             else if (!switch.isChecked)
                 Toast.makeText(context, "Вы не согласились с правилами", Toast.LENGTH_LONG).show()
             else {

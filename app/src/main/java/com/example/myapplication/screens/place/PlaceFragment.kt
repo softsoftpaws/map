@@ -15,13 +15,13 @@ import com.example.myapplication.screens.MapViewModel
 
 class PlaceFragment : Fragment() {
 
-    private lateinit var binding:FragmentPlaceBinding
+    private lateinit var binding: FragmentPlaceBinding
     private lateinit var mMapViewModel: MapViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         binding = FragmentPlaceBinding.inflate(layoutInflater, container, false)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
 
@@ -34,9 +34,24 @@ class PlaceFragment : Fragment() {
 
             binding.nameTextView.text = placeEntity?.object_name
             binding.typeTextView.text = placeEntity?.object_type
-            binding.daysTextView.text = placeEntity?.opening_days
-            binding.phoneTextView.text = placeEntity?.phone
-            binding.siteTextView.text = placeEntity?.site
+
+            if (placeEntity != null) {
+                if (placeEntity.opening_days.isBlank()) {
+                    binding.daysTextView.text = "Информация отсутствует"
+                } else {
+                    binding.daysTextView.text = placeEntity.opening_days
+                }
+                if (placeEntity.phone.isBlank()) {
+                    binding.phoneTextView.text = "Информация отсутствует"
+                } else {
+                    binding.phoneTextView.text = placeEntity.phone
+                }
+                if (placeEntity.site.isBlank()) {
+                    binding.siteTextView.text = "Информация отсутствует"
+                } else {
+                    binding.siteTextView.text = placeEntity.site
+                }
+            }
         }
 
         binding.deletePlaceButton.setOnClickListener {

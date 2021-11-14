@@ -1,4 +1,4 @@
-package com.example.myapplication.screens.profile
+package com.example.myapplication.screens.userProfile
 
 import android.content.Context
 import android.content.Intent
@@ -23,7 +23,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
 
         binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
@@ -38,6 +38,7 @@ class ProfileFragment : Fragment() {
             val userEntity = mUserViewModel.user
             binding.loginText.text = userEntity?.login
             binding.mailText.text = userEntity?.mail
+            binding.passwordText.text = userEntity?.password
         }
         binding.exitButton.setOnClickListener {
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
