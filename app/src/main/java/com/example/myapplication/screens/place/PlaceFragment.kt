@@ -18,15 +18,11 @@ class PlaceFragment : Fragment() {
     private lateinit var binding: FragmentPlaceBinding
     private lateinit var mMapViewModel: MapViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentPlaceBinding.inflate(layoutInflater, container, false)
-        mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
-
         val args: PlaceFragmentArgs by navArgs()
         val placeName = args.placeName
+        mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
 
         lifecycleScope.launchWhenStarted {
             mMapViewModel.getPlace(placeName)
@@ -50,6 +46,11 @@ class PlaceFragment : Fragment() {
                     binding.siteTextView.text = "Информация отсутствует"
                 } else {
                     binding.siteTextView.text = placeEntity.site
+                }
+                if (placeEntity.comments.isBlank()) {
+                    binding.commentText.text = "Комментарий не добавлен"
+                } else {
+                    binding.commentText.text = placeEntity.comments
                 }
             }
         }

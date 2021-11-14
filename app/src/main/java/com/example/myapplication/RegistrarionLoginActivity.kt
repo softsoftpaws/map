@@ -17,21 +17,19 @@ class RegistrationLoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.registrationButton.setOnClickListener {
-            binding.registrationButton.setTextColor(ContextCompat.getColor(applicationContext,
-                R.color.white))
-            binding.loginButton.setTextColor(ContextCompat.getColor(applicationContext,
-                R.color.purple))
+            binding.registrationButton.setTextColor(ContextCompat.getColor(applicationContext, R.color.white))
+            binding.loginButton.setTextColor(ContextCompat.getColor(applicationContext, R.color.purple))
             pressButton(binding.registrationButton, binding.loginButton, true)
+
             if (findNavController(R.id.fragmentContainerView).currentDestination?.id != R.id.registrationFragment) {
                 findNavController(R.id.fragmentContainerView).navigate(R.id.action_loginFragment_to_registrationFragment)
             }
         }
         binding.loginButton.setOnClickListener {
-            binding.loginButton.setTextColor(ContextCompat.getColor(applicationContext,
-                R.color.white))
-            binding.registrationButton.setTextColor(ContextCompat.getColor(applicationContext,
-                R.color.purple))
+            binding.loginButton.setTextColor(ContextCompat.getColor(applicationContext, R.color.white))
+            binding.registrationButton.setTextColor(ContextCompat.getColor(applicationContext, R.color.purple))
             pressButton(binding.registrationButton, binding.loginButton, false)
+
             if (findNavController(R.id.fragmentContainerView).currentDestination?.id != R.id.loginFragment) {
                 findNavController(R.id.fragmentContainerView).navigate(R.id.action_registrationFragment_to_loginFragment)
             }

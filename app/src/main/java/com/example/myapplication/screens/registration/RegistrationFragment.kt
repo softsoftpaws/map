@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
-import com.example.myapplication.data.userData.UserDto
+import com.example.myapplication.data.user_data.UserDto
 import com.example.myapplication.databinding.FragmentRegistrationBinding
 import com.example.myapplication.screens.UserViewModel
 
@@ -20,11 +20,7 @@ class RegistrationFragment : Fragment() {
     private lateinit var mUserViewModel: UserViewModel
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentRegistrationBinding.inflate(inflater, container, false)
         mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 

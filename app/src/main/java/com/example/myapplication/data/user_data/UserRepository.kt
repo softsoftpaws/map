@@ -1,6 +1,4 @@
-package com.example.myapplication.data.userData
-
-import com.example.myapplication.data.UserDao
+package com.example.myapplication.data.user_data
 
 class UserRepository(private val userDao: UserDao) {
 

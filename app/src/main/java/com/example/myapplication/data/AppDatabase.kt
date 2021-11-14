@@ -4,9 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.myapplication.data.place_data.PlaceDto
 import com.example.myapplication.data.place_data.PlaceDao
-import com.example.myapplication.data.userData.UserDto
+import com.example.myapplication.data.place_data.PlaceDto
+import com.example.myapplication.data.user_data.UserDao
+import com.example.myapplication.data.user_data.UserDto
 
 @Database(entities = [UserDto::class, PlaceDto::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

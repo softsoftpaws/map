@@ -19,10 +19,7 @@ class InfoFragment : Fragment() {
     private lateinit var binding: FragmentInfoBinding
     private lateinit var mMapViewModel: MapViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         binding = FragmentInfoBinding.inflate(layoutInflater, container, false)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
@@ -49,7 +46,6 @@ class InfoFragment : Fragment() {
                     Toast.LENGTH_LONG).show()
             }
         }
-
         return binding.root
     }
 

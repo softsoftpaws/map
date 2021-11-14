@@ -1,10 +1,9 @@
-package com.example.myapplication.data
+package com.example.myapplication.data.user_data
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.myapplication.data.userData.UserDto
 
 @Dao
 interface UserDao {

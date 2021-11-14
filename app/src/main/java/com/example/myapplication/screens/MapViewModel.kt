@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 class MapViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllData: LiveData<List<PlaceDto>>
-    private val repository: PlaceRepository
     var placeDto: PlaceDto? = null
+    private val repository: PlaceRepository
 
     init {
         val placeDao = AppDatabase.getDatabase(application).placeDao()

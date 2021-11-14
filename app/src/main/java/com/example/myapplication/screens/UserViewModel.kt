@@ -4,16 +4,16 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.AppDatabase
-import com.example.myapplication.data.userData.UserDto
-import com.example.myapplication.data.userData.UserRepository
+import com.example.myapplication.data.user_data.UserDto
+import com.example.myapplication.data.user_data.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: UserRepository
     var userDto: UserDto? = null
+    private val repository: UserRepository
 
     init {
         val userDao = AppDatabase.getDatabase(application).userDao()
