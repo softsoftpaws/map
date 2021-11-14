@@ -23,13 +23,12 @@ class RegistrationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
 
         binding = FragmentRegistrationBinding.inflate(inflater, container, false)
         mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         binding.regButton.setOnClickListener {
-
             val log = binding.logEditText.text.toString().trim()
             val mail = binding.mailEditText.text.toString().trim()
             val pass = binding.firstPassEditText.text.toString().trim()

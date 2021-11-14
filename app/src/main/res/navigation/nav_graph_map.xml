@@ -15,7 +15,7 @@
         android:id="@+id/mapFragment"
         android:name="com.example.myapplication.screens.map.MapFragment"
         android:label="Map"
-        tools:layout="@layout/fragment_map" >
+        tools:layout="@layout/fragment_map">
         <action
             android:id="@+id/action_mapFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
@@ -28,16 +28,17 @@
         android:id="@+id/placesFragment"
         android:name="com.example.myapplication.screens.listOfPlaces.PlaceListFragment"
         android:label="Places"
-        tools:layout="@layout/fragment_place_list" >
+        tools:layout="@layout/fragment_place_list">
         <action
             android:id="@+id/action_placesFragment_to_placeFragment"
             app:destination="@id/placeFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.example.myapplication.screens.addInfo.InfoFragment"
+        android:name="com.example.myapplication.screens.addPlace.InfoFragment"
         android:label="fragment_info"
-        tools:layout="@layout/fragment_info" >
+        tools:layout="@layout/fragment_info">
         <action
             android:id="@+id/action_infoFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
@@ -53,13 +54,13 @@
         android:id="@+id/placeFragment"
         android:name="com.example.myapplication.screens.place.PlaceFragment"
         android:label="fragment_place"
-        tools:layout="@layout/fragment_place" >
+        tools:layout="@layout/fragment_place">
         <action
             android:id="@+id/action_placeFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
         <argument
             android:name="placeName"
-            app:argType="string"/>
+            app:argType="string" />
     </fragment>
 
 </navigation>
