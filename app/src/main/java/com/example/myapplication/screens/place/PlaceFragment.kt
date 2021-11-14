@@ -30,7 +30,7 @@ class PlaceFragment : Fragment() {
 
         lifecycleScope.launchWhenStarted {
             mMapViewModel.getPlace(placeName)
-            val placeEntity = mMapViewModel.place
+            val placeEntity = mMapViewModel.placeDto
 
             binding.nameTextView.text = placeEntity?.object_name
             binding.typeTextView.text = placeEntity?.object_type

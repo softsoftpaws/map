@@ -79,7 +79,7 @@
         android:text="@string/text"
         android:textColor="@color/darkGrey"
         android:textSize="17sp"
-        app:drawableLeftCompat="@drawable/time"
+        app:drawableLeftCompat="@drawable/ic_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoTextView" />
@@ -98,7 +98,7 @@
         android:text="@string/text"
         android:textColor="@color/darkGrey"
         android:textSize="17sp"
-        app:drawableLeftCompat="@drawable/phone"
+        app:drawableLeftCompat="@drawable/ic_phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/daysTextView" />
 
@@ -116,7 +116,7 @@
         android:text="@string/text"
         android:textColor="@color/darkGrey"
         android:textSize="17sp"
-        app:drawableLeftCompat="@drawable/site"
+        app:drawableLeftCompat="@drawable/ic_site"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneTextView" />
 

@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
 
             lifecycleScope.launchWhenResumed {
                 userViewModel.getUser(log, pass)
-                val userEntity = userViewModel.user
+                val userEntity = userViewModel.userDto
                 if (userEntity != null) {
                     saveData(log, pass)
                     transitionToMap()

@@ -22,7 +22,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PointOfInterest
 
-class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener{
+class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener {
 
     private lateinit var binding: FragmentMapBinding
     private lateinit var mMapViewModel: MapViewModel
@@ -30,11 +30,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
     private lateinit var placeName: String
     private lateinit var mMap: GoogleMap
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentMapBinding.inflate(inflater, container, false)
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?

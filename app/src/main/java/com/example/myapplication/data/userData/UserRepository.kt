@@ -4,11 +4,11 @@ import com.example.myapplication.data.UserDao
 
 class UserRepository(private val userDao: UserDao) {
 
-    suspend fun addUser(user: User) {
-        userDao.addUser(user)
+    suspend fun addUser(userDto: UserDto) {
+        userDao.addUser(userDto)
     }
 
-    suspend fun getUser(login: String, password: String): User {
+    suspend fun getUser(login: String, password: String): UserDto {
         return userDao.getUser(login, password)
     }
 }

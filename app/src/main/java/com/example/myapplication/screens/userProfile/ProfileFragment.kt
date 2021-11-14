@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
 
         lifecycleScope.launchWhenResumed {
             mUserViewModel.getUser(logText, passText)
-            val userEntity = mUserViewModel.user
+            val userEntity = mUserViewModel.userDto
             binding.loginText.text = userEntity?.login
             binding.mailText.text = userEntity?.mail
             binding.passwordText.text = userEntity?.password

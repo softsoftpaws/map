@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
-import com.example.myapplication.data.placeData.Place
+import com.example.myapplication.data.place_data.PlaceDto
 import com.example.myapplication.databinding.FragmentInfoBinding
 import com.example.myapplication.screens.MapViewModel
 
@@ -38,7 +38,7 @@ class InfoFragment : Fragment() {
             val lat = args.lat.toDouble()
             val long = args.long.toDouble()
 
-            val place = Place(0, name, type, days, phone, site, comment, lat, long)
+            val place = PlaceDto(0, name, type, days, phone, site, comment, lat, long)
 
             if (validate(name, type)) {
                 mMapViewModel.insertPlace(place)
