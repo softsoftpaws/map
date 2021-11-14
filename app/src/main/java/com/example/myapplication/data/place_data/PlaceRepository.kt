@@ -14,11 +14,11 @@ class PlaceRepository(private val placeDao: PlaceDao) {
         return placeDao.getPlaces()
     }
 
-    suspend fun getPlace(object_name: String): PlaceDto {
-        return placeDao.getPlace(object_name)
+    suspend fun getPlace(placeName: String): PlaceDto {
+        return placeDao.getPlace(placeName)
     }
 
-    suspend fun deletePlace(object_name: String) {
-        placeDao.deletePlace(object_name)
+    suspend fun deletePlace(placeName: String) {
+        placeDao.deletePlace(placeName)
     }
 }
