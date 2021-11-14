@@ -23,7 +23,7 @@
         tools:layout_editor_absoluteY="150dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputlog"
+            android:id="@+id/logEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"
@@ -48,7 +48,7 @@
         tools:layout_editor_absoluteY="150dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputmail"
+            android:id="@+id/mailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits=". abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890 @ "
@@ -57,7 +57,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textpass1"
+        android:id="@+id/pass"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textmail">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputpass"
+            android:id="@+id/firstPassEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"
@@ -80,7 +80,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textpasssecond"
+        android:id="@+id/passSecond"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -91,10 +91,10 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:endIconMode="password_toggle"
-        app:layout_constraintTop_toBottomOf="@+id/textpass1">
+        app:layout_constraintTop_toBottomOf="@+id/pass">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputpass2"
+            android:id="@+id/secondPassEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"
@@ -102,21 +102,8 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/regbtn"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/registr"
-        android:textColor="@color/blueForText"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
-
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switchReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -126,10 +113,24 @@
         android:minHeight="48dp"
         android:text="@string/switchf"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/regbtn"
+        android:theme="@style/SwitchTheme"
+        app:layout_constraintBottom_toTopOf="@+id/regButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textpasssecond"
+        app:layout_constraintTop_toBottomOf="@+id/passSecond"
         tools:ignore="NotSibling" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/regButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/registr"
+        android:textColor="@color/purple_200"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchReg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

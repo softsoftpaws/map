@@ -21,7 +21,7 @@
         tools:layout_editor_absoluteY="150dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/log_et_log"
+            android:id="@+id/logEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="20"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/log_et_pass"
+            android:id="@+id/passEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="20"
@@ -51,7 +51,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/enter"
+        android:id="@+id/enterButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
         android:layout_marginEnd="100dp"
         android:backgroundTint="@color/white"
         android:text="@string/sign_in"
-        android:textColor="@color/blueForText"
+        android:textColor="@color/purple_200"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

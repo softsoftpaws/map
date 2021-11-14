@@ -9,7 +9,7 @@
     <string name="login">Логин</string>
     <string name="mail">E-mail</string>
     <string name="password">Пароль</string>
-    <string name="sign_in">Вход</string>
+    <string name="sign_in">Войти</string>
     <string name="sign_in_button">Вход</string>
     <string name="log_out">Выйти</string>
     <string name="map">Карта</string>
@@ -27,4 +27,11 @@
     <string name="make_place">Добавить объект на карту</string>
     <string name="place_image">Выбрать изображение</string>
     <string name="info">Информация</string>
+    <string name="delete">Удалить место</string>
+    <string name="Info">Нет информации</string>
+    <string name="number">1</string>
+    <string name="text">Text</string>
+
+
+    <string name="maps_api_key">AIzaSyBXGtelkBZCdrR7OkeYsWxx69pnVjwxK4M</string>
 </resources>

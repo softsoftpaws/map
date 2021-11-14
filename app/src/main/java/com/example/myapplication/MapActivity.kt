@@ -1,31 +1,26 @@
 package com.example.myapplication
 
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Button
-
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
+import com.example.myapplication.databinding.ActivityMapBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MapActivity : AppCompatActivity() {
-
-    lateinit var sharedPreferences: SharedPreferences
+    lateinit var bindingClass : ActivityMapBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_map)
+        bindingClass = ActivityMapBinding.inflate(layoutInflater)
+        setContentView(bindingClass.root)
 
-        sharedPreferences = getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerViewMap) as NavHostFragment
+        val navController = navHostFragment.navController
 
-        findViewById<Button>(R.id.logOut).setOnClickListener {
-            deleteData()
-            startActivity(Intent(this, RegistrationLoginActivity::class.java))
-        }
-    }
-
-    private fun deleteData() {
-        val editor: SharedPreferences.Editor = sharedPreferences.edit()
-        editor.clear().apply()
+        navView.setupWithNavController(navController)
     }
 }
