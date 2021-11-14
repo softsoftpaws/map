@@ -22,27 +22,20 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PointOfInterest
 
-class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener{
+class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener {
 
     private lateinit var binding: FragmentMapBinding
     private lateinit var mMapViewModel: MapViewModel
-    lateinit var sharedPreferences: SharedPreferences
     private lateinit var placeName: String
     private lateinit var mMap: GoogleMap
+    lateinit var sharedPreferences: SharedPreferences
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentMapBinding.inflate(inflater, container, false)
-
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        val mapAsync = mapFragment?.getMapAsync(this)
-        sharedPreferences =
-            requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        mapFragment?.getMapAsync(this)
+        sharedPreferences = requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
-
         return binding.root
     }
 
@@ -60,7 +53,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
 
         lifecycleScope.launchWhenResumed {
             val markers = mMapViewModel.getPlaces()
-            val mMap = googleMap
+
             for (marker in markers) {
                 mMap.addMarker(
                     MarkerOptions().position(LatLng(marker.latitude, marker.longitude))
@@ -71,17 +64,13 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
 
         googleMap.setOnMarkerClickListener { marker ->
             placeName = marker.title.toString()
-            findNavController().navigate(MapFragmentDirections.actionMapFragmentToPlaceFragment(
-                placeName))
+            findNavController().navigate(MapFragmentDirections.actionMapFragmentToPlaceFragment(placeName))
             true
         }
     }
 
     override fun onPoiClick(poi: PointOfInterest) {
-        Toast.makeText(context, """Clicked: ${poi.name}
-            Place ID:${poi.placeId}
-            Latitude:${poi.latLng.latitude} Longitude:${poi.latLng.longitude}""",
-            Toast.LENGTH_SHORT
-        ).show()
+        Toast.makeText(context, """Clicked: ${poi.name} Place ID:${poi.placeId}
+            Latitude:${poi.latLng.latitude} Longitude:${poi.latLng.longitude}""", Toast.LENGTH_SHORT).show()
     }
 }

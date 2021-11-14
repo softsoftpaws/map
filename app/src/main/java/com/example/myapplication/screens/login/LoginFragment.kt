@@ -17,32 +17,26 @@ import com.example.myapplication.screens.UserViewModel
 
 class LoginFragment : Fragment() {
 
+    var isRemembered = false
     private lateinit var binding: FragmentLoginBinding
     private lateinit var userViewModel: UserViewModel
     lateinit var sharedPreferences: SharedPreferences
-    var isRemembered = false
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
-
         userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
-        sharedPreferences =
-            requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        sharedPreferences = requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         isRemembered = sharedPreferences.getBoolean("CHECKBOX", false)
 
         checkLogin()
 
         binding.enterButton.setOnClickListener {
-
             val log = binding.logEditText.text.toString().trim()
             val pass = binding.passEditText.text.toString().trim()
 
             lifecycleScope.launchWhenResumed {
                 userViewModel.getUser(log, pass)
-                val userEntity = userViewModel.user
+                val userEntity = userViewModel.userDto
                 if (userEntity != null) {
                     saveData(log, pass)
                     transitionToMap()

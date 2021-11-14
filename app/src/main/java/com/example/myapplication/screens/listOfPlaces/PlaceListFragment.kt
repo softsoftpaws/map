@@ -5,38 +5,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentPlaceListBinding
 import com.example.myapplication.screens.MapViewModel
-import kotlinx.android.synthetic.main.fragment_place_list.*
 
 class PlaceListFragment : Fragment() {
 
     private lateinit var binding: FragmentPlaceListBinding
     private lateinit var mMapViewModel: MapViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentPlaceListBinding.inflate(inflater, container, false)
         val adapter = ListAdapter()
 
         binding.swipeList.setOnRefreshListener {
-            swipeList.isRefreshing = false
+            binding.swipeList.isRefreshing = false
         }
+
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.adapter = adapter
-        recyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        mMapViewModel = ViewModelProvider(this).get(MapViewModel::class.java)
-        mMapViewModel.readAllData.observe(viewLifecycleOwner, Observer { place ->
+        mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
+        mMapViewModel.readAllData.observe(viewLifecycleOwner, { place ->
             adapter.setData(place)
         })
 

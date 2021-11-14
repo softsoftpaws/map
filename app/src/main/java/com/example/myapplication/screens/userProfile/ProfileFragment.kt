@@ -20,26 +20,22 @@ class ProfileFragment : Fragment() {
     private lateinit var mUserViewModel: UserViewModel
     lateinit var sharedPreferences: SharedPreferences
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
-        sharedPreferences =
-            requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        sharedPreferences = requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
 
         val logText = sharedPreferences.getString("LOGIN", "").toString()
         val passText = sharedPreferences.getString("PASSWORD", "").toString()
 
         lifecycleScope.launchWhenResumed {
             mUserViewModel.getUser(logText, passText)
-            val userEntity = mUserViewModel.user
+            val userEntity = mUserViewModel.userDto
             binding.loginText.text = userEntity?.login
             binding.mailText.text = userEntity?.mail
             binding.passwordText.text = userEntity?.password
         }
+
         binding.exitButton.setOnClickListener {
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
             editor.clear().apply()

@@ -5,16 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.data.placeData.Place
-import com.example.myapplication.databinding.CustomRowBinding
+import com.example.myapplication.data.place_data.PlaceDto
+import com.example.myapplication.databinding.ItemPlaceBinding
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
-    private lateinit var binding: CustomRowBinding
-    var onItemClick: ((Place) -> Unit)? = null
+    private lateinit var binding: ItemPlaceBinding
+    var onItemClick: ((PlaceDto) -> Unit)? = null
 
     override fun getItemCount() = placeList.size
-    private var placeList = emptyList<Place>()
+    private var placeList = emptyList<PlaceDto>()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
@@ -25,7 +25,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = CustomRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = ItemPlaceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding.root)
     }
 
@@ -38,8 +38,8 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(place: List<Place>) {
-        this.placeList = place
+    fun setData(placeDto: List<PlaceDto>) {
+        this.placeList = placeDto
         notifyDataSetChanged() // адаптер рисует все элементы списка
     }
 }

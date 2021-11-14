@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
-import com.example.myapplication.data.placeData.Place
+import com.example.myapplication.data.place_data.PlaceDto
 import com.example.myapplication.databinding.FragmentInfoBinding
 import com.example.myapplication.screens.MapViewModel
 
@@ -19,10 +19,7 @@ class InfoFragment : Fragment() {
     private lateinit var binding: FragmentInfoBinding
     private lateinit var mMapViewModel: MapViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         binding = FragmentInfoBinding.inflate(layoutInflater, container, false)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
@@ -38,7 +35,7 @@ class InfoFragment : Fragment() {
             val lat = args.lat.toDouble()
             val long = args.long.toDouble()
 
-            val place = Place(0, name, type, days, phone, site, comment, lat, long)
+            val place = PlaceDto(0, name, type, days, phone, site, comment, lat, long)
 
             if (validate(name, type)) {
                 mMapViewModel.insertPlace(place)
@@ -49,7 +46,6 @@ class InfoFragment : Fragment() {
                     Toast.LENGTH_LONG).show()
             }
         }
-
         return binding.root
     }
 

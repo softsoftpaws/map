@@ -8,7 +8,7 @@
     android:layout_marginLeft="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginRight="8dp"
-    android:background="@drawable/list_of_users_style"
+    android:background="@drawable/background_item_place"
     android:padding="5sp"
     tools:context=".screens.listOfPlaces.ListAdapter">
 
