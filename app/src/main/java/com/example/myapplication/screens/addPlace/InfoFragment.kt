@@ -1,4 +1,4 @@
-package com.example.myapplication.screens.addInfo
+package com.example.myapplication.screens.addPlace
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,6 @@ import com.example.myapplication.data.placeData.Place
 import com.example.myapplication.databinding.FragmentInfoBinding
 import com.example.myapplication.screens.MapViewModel
 
-
 class InfoFragment : Fragment() {
 
     private lateinit var binding: FragmentInfoBinding
@@ -23,7 +22,7 @@ class InfoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
 
         binding = FragmentInfoBinding.inflate(layoutInflater, container, false)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]

@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -23,8 +22,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PointOfInterest
 
-class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener,
-    ActivityCompat.OnRequestPermissionsResultCallback {
+class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener{
 
     private lateinit var binding: FragmentMapBinding
     private lateinit var mMapViewModel: MapViewModel
@@ -36,7 +34,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         binding = FragmentMapBinding.inflate(inflater, container, false)
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?

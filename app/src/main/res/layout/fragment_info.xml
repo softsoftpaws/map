@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.addInfo.InfoFragment">
+    tools:context=".screens.addPlace.InfoFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/makePlaceText"
@@ -131,7 +131,6 @@
             android:maxLength="60"
             tools:layout_editor_absoluteX="34dp"
             tools:layout_editor_absoluteY="253dp" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton

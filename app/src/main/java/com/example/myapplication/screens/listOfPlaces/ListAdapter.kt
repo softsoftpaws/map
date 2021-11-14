@@ -32,7 +32,6 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val currentItem = placeList[position]
-
         binding.numberTextView.text = (position + 1).toString()
         binding.placeNameTextView.text = currentItem.object_name
         binding.placeTypeTextView.text = currentItem.object_type
