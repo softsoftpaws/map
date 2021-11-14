@@ -1,4 +1,4 @@
-package com.example.myapplication.screens.listOfPlaces
+package com.example.myapplication.screens.list_of_places
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,27 +7,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.databinding.FragmentPlaceListBinding
+import com.example.myapplication.databinding.FragmentPlacesBinding
 import com.example.myapplication.screens.MapViewModel
 
 class PlaceListFragment : Fragment() {
 
-    private lateinit var binding: FragmentPlaceListBinding
+    private lateinit var binding: FragmentPlacesBinding
     private lateinit var mMapViewModel: MapViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentPlaceListBinding.inflate(inflater, container, false)
+        binding = FragmentPlacesBinding.inflate(inflater, container, false)
         val adapter = ListAdapter()
 
         binding.swipeList.setOnRefreshListener {
             binding.swipeList.isRefreshing = false
         }
 
-        val recyclerView: RecyclerView = binding.recyclerView
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = adapter
 
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
         mMapViewModel.readAllData.observe(viewLifecycleOwner, { place ->
@@ -35,9 +31,8 @@ class PlaceListFragment : Fragment() {
         })
 
         adapter.onItemClick = { currentItem ->
-            val placeName = currentItem.object_name
-            findNavController().navigate(PlaceListFragmentDirections.actionPlacesFragmentToPlaceFragment(
-                placeName))
+            val placeName = currentItem.objectName
+            findNavController().navigate(PlaceListFragmentDirections.actionPlacesFragmentToPlaceFragment(placeName))
         }
         return binding.root
     }

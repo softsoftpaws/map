@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class PlaceDto(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val object_name: String,
+    val objectName: String,
     val object_type: String,
     val opening_days: String,
     val phone: String,

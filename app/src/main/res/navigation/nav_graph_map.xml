@@ -26,9 +26,9 @@
 
     <fragment
         android:id="@+id/placesFragment"
-        android:name="com.example.myapplication.screens.listOfPlaces.PlaceListFragment"
+        android:name="com.example.myapplication.screens.list_of_places.PlaceListFragment"
         android:label="Places"
-        tools:layout="@layout/fragment_place_list">
+        tools:layout="@layout/fragment_places">
         <action
             android:id="@+id/action_placesFragment_to_placeFragment"
             app:destination="@id/placeFragment" />

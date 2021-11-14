@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentPlaceBinding
 import com.example.myapplication.screens.MapViewModel
@@ -28,8 +29,14 @@ class PlaceFragment : Fragment() {
             mMapViewModel.getPlace(placeName)
             val placeEntity = mMapViewModel.placeDto
 
-            binding.nameTextView.text = placeEntity?.object_name
+            binding.nameTextView.text = placeEntity?.objectName
             binding.typeTextView.text = placeEntity?.object_type
+
+            Glide
+                .with(requireActivity())
+                .load("https://images6.alphacoders.com/111/thumb-350-1116422.jpg")
+                .centerCrop()
+                .into(binding.imageTime)
 
             if (placeEntity != null) {
                 if (placeEntity.opening_days.isBlank()) {

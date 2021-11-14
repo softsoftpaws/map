@@ -10,7 +10,7 @@
     android:layout_marginRight="8dp"
     android:background="@drawable/background_item_place"
     android:padding="5sp"
-    tools:context=".screens.listOfPlaces.ListAdapter">
+    tools:context=".screens.list_of_places.ListAdapter">
 
     <TextView
         android:id="@+id/numberTextView"

@@ -57,7 +57,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
             for (marker in markers) {
                 mMap.addMarker(
                     MarkerOptions().position(LatLng(marker.latitude, marker.longitude))
-                        .title(marker.object_name)
+                        .title(marker.objectName)
                 )
             }
         }

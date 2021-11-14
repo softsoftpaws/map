@@ -10,7 +10,6 @@
         android:name="com.example.myapplication.screens.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
-
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
@@ -21,7 +20,6 @@
         android:name="com.example.myapplication.screens.registration.RegistrationFragment"
         android:label="RegistrationFragment"
         tools:layout="@layout/fragment_registration">
-
         <action
             android:id="@+id/action_registrationFragment_to_loginFragment"
             app:destination="@id/loginFragment" />

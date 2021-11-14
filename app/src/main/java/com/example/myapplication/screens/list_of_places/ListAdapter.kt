@@ -1,4 +1,4 @@
-package com.example.myapplication.screens.listOfPlaces
+package com.example.myapplication.screens.list_of_places
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -33,7 +33,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
         val currentItem = placeList[position]
         binding.numberTextView.text = (position + 1).toString()
-        binding.placeNameTextView.text = currentItem.object_name
+        binding.placeNameTextView.text = currentItem.objectName
         binding.placeTypeTextView.text = currentItem.object_type
     }
 

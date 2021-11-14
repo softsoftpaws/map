@@ -5,36 +5,40 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
-import com.example.myapplication.databinding.ActivityRegistrarionLoginBinding
+import com.example.myapplication.databinding.ActivityAuntificationBinding
 
 class RegistrationLoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityRegistrarionLoginBinding
+    private lateinit var binding: ActivityAuntificationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegistrarionLoginBinding.inflate(layoutInflater)
+        binding = ActivityAuntificationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.registrationButton.setOnClickListener {
-            binding.registrationButton.setTextColor(ContextCompat.getColor(applicationContext, R.color.white))
-            binding.loginButton.setTextColor(ContextCompat.getColor(applicationContext, R.color.purple))
-            pressButton(binding.registrationButton, binding.loginButton, true)
+        with(binding) {
+           registrationButton.setOnClickListener {
+                registrationButton.setTextColor(R.color.white.getCurrentColor())
+                loginButton.setTextColor(R.color.purple.getCurrentColor())
+                pressButton(registrationButton, loginButton, true)
 
-            if (findNavController(R.id.fragmentContainerView).currentDestination?.id != R.id.registrationFragment) {
-                findNavController(R.id.fragmentContainerView).navigate(R.id.action_loginFragment_to_registrationFragment)
+                if (findNavController(R.id.fragmentContainerView).currentDestination?.id != R.id.registrationFragment) {
+                    findNavController(R.id.fragmentContainerView).navigate(R.id.action_loginFragment_to_registrationFragment)
+                }
             }
-        }
-        binding.loginButton.setOnClickListener {
-            binding.loginButton.setTextColor(ContextCompat.getColor(applicationContext, R.color.white))
-            binding.registrationButton.setTextColor(ContextCompat.getColor(applicationContext, R.color.purple))
-            pressButton(binding.registrationButton, binding.loginButton, false)
+            loginButton.setOnClickListener {
+                loginButton.setTextColor(R.color.white.getCurrentColor())
+                registrationButton.setTextColor(R.color.purple.getCurrentColor())
+                pressButton(registrationButton, loginButton, false)
 
-            if (findNavController(R.id.fragmentContainerView).currentDestination?.id != R.id.loginFragment) {
-                findNavController(R.id.fragmentContainerView).navigate(R.id.action_registrationFragment_to_loginFragment)
+                if (findNavController(R.id.fragmentContainerView).currentDestination?.id != R.id.loginFragment) {
+                    findNavController(R.id.fragmentContainerView).navigate(R.id.action_registrationFragment_to_loginFragment)
+                }
             }
         }
     }
+
+    private fun Int.getCurrentColor() = ContextCompat.getColor(applicationContext, this)
 
     private fun pressButton(unpressedButton: AppCompatButton, pressedButton: AppCompatButton, pressed: Boolean) {
         unpressedButton.isSelected = pressed
