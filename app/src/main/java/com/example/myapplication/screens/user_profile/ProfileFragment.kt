@@ -1,4 +1,4 @@
-package com.example.myapplication.screens.userProfile
+package com.example.myapplication.screens.user_profile
 
 import android.content.Context
 import android.content.Intent

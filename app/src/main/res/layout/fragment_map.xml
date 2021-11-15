@@ -12,9 +12,8 @@
         android:layout_height="match_parent"
         map:cameraZoom="3"
         map:mapType="normal"
-        map:uiCompass="false"
-        tools:context=".screens.map.MapFragment"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-16dp" />
+        map:uiCompass="true"
+        map:uiZoomControls ="true"
+        tools:context=".screens.map.MapFragment"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

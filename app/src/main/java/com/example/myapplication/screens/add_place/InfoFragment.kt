@@ -1,4 +1,4 @@
-package com.example.myapplication.screens.addPlace
+package com.example.myapplication.screens.add_place
 
 import android.os.Bundle
 import android.view.LayoutInflater
