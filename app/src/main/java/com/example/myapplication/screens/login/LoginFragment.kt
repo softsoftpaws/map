@@ -34,7 +34,6 @@ class LoginFragment : Fragment() {
             val log = binding.logEditText.text.toString().trim()
             val pass = binding.passEditText.text.toString().trim()
 
-
             lifecycleScope.launchWhenResumed {
                 if (checkLoginText(log) == checkPasswordText(pass)) {
                     userViewModel.getUser(log, pass)

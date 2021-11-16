@@ -36,7 +36,6 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         binding = FragmentMapBinding.inflate(inflater, container, false)
 
         val mapFragment =
