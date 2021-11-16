@@ -16,21 +16,19 @@ class PlaceListFragment : Fragment() {
     private lateinit var mMapViewModel: MapViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+
         binding = FragmentPlacesBinding.inflate(inflater, container, false)
         val adapter = ListAdapter()
-
         binding.recyclerView.adapter = adapter
 
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
         mMapViewModel.readAllData.observe(viewLifecycleOwner, { place ->
             adapter.setData(place)
         })
-
         adapter.onItemClick = { currentItem ->
             val placeName = currentItem.objectName
             findNavController().navigate(PlaceListFragmentDirections.actionPlacesFragmentToPlaceFragment(placeName))
         }
-
         return binding.root
     }
 }

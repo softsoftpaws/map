@@ -10,7 +10,7 @@
         android:id="@+id/makePlaceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
         android:text="@string/make_place"
         android:textColor="@color/purple_220"
@@ -25,9 +25,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/makePlaceText"
         tools:ignore="MissingConstraints">
 
@@ -46,9 +49,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/placeName">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -64,8 +70,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_image"
         app:layout_constraintTop_toBottomOf="@id/placeType">
 
@@ -76,15 +83,14 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/placePhone"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_phone"
         app:layout_constraintTop_toBottomOf="@id/placeImage">
 
@@ -102,8 +108,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_site"
         app:layout_constraintTop_toBottomOf="@id/placePhone">
 
@@ -120,8 +127,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_comment"
         app:layout_constraintTop_toBottomOf="@id/placeSite">
 
@@ -129,7 +137,7 @@
             android:id="@+id/placeCommentEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="60"
+            android:maxLength="250"
             tools:layout_editor_absoluteX="34dp"
             tools:layout_editor_absoluteY="253dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -139,7 +147,7 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:padding="0dp"
         android:text="@string/place_save"
         android:textColor="@color/purple_220"

@@ -27,7 +27,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PointOfInterest
 import java.util.Locale
 
-
 class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener {
 
     private lateinit var binding: FragmentMapBinding
@@ -58,9 +57,9 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
             val lat = latlng.latitude.toString()
             val long = latlng.longitude.toString()
             val address = getAddress(latlng.latitude, latlng.longitude)
-
             findNavController().navigate(MapFragmentDirections.actionMapFragmentToInfoFragment(lat, long, address))
         }
+
         with(binding) {
             layers.mapTypeDefaultImageButton.setOnClickListener {
                 mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
@@ -93,13 +92,11 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
 
     override fun onPoiClick(poi: PointOfInterest) {
         Toast.makeText(context, poi.name, Toast.LENGTH_SHORT).show()
-
     }
 
     private fun currentLocation() {
         if (ActivityCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
-        ) {
+                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.isMyLocationEnabled = true
             mMap.uiSettings.isMyLocationButtonEnabled = true
             return
@@ -112,11 +109,5 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
         val geocoder = Geocoder(context, Locale.getDefault())
         val addresses: List<Address> = geocoder.getFromLocation(lat, lng, 1)
         return addresses[0].getAddressLine(0)
-
     }
 }
-
-
-
-
-

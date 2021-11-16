@@ -36,7 +36,7 @@ class LoginFragment : Fragment() {
 
 
             lifecycleScope.launchWhenResumed {
-                if(checkLoginText(log)==checkPasswordText(pass)) {
+                if (checkLoginText(log) == checkPasswordText(pass)) {
                     userViewModel.getUser(log, pass)
                     val userEntity = userViewModel.userDto
                     if (userEntity != null) {
@@ -53,27 +53,27 @@ class LoginFragment : Fragment() {
 
     private fun checkLoginText(login: String): Boolean {
         with(binding) {
-            if ( login.isBlank()){
+            if (login.isBlank()) {
                 logTextInputLayout.error = "Введите логин"
                 return false
-            }else if (login.length<6){
+            } else if (login.length < 6) {
                 logTextInputLayout.error = "Длина менее 6 символов"
                 return false
-            }else{
+            } else {
                 return true
             }
-            }
         }
+    }
 
     private fun checkPasswordText(password: String): Boolean {
         with(binding) {
-            if ( password.isBlank()){
+            if (password.isBlank()) {
                 passTextInputLayout.error = "Введите пароль"
                 return false
-            }else if (password.length<6){
+            } else if (password.length < 6) {
                 passTextInputLayout.error = "Длина менее 6 символов"
                 return false
-            }else{
+            } else {
                 return true
             }
 

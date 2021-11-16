@@ -41,9 +41,7 @@ class InfoFragment : Fragment() {
                 mMapViewModel.insertPlace(place)
                 findNavController().navigate(R.id.action_infoFragment_to_mapFragment)
             } else {
-                Toast.makeText(context,
-                    "Называние объекта и тип объекта обязательны к заполнению",
-                    Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Называние объекта и тип объекта обязательны к заполнению", Toast.LENGTH_LONG).show()
             }
         }
         return binding.root

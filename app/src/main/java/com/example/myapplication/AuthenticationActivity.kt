@@ -15,9 +15,8 @@ class RegistrationLoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         with(binding) {
-           registrationButton.setOnClickListener {
+            registrationButton.setOnClickListener {
                 registrationButton.setTextColor(R.color.white.getCurrentColor())
                 loginButton.setTextColor(R.color.purple.getCurrentColor())
                 pressButton(registrationButton, loginButton, true)

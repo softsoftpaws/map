@@ -14,7 +14,7 @@
         map:mapType="normal"
         map:uiCompass="true"
         map:uiZoomControls="true"
-        tools:context=".screens.map.MapFragment"/>
+        tools:context=".screens.map.MapFragment" />
 
     <include
         android:id="@+id/layers"
