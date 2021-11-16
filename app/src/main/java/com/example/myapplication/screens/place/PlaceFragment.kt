@@ -30,34 +30,44 @@ class PlaceFragment : Fragment() {
             val placeEntity = mMapViewModel.placeDto
 
             binding.nameTextView.text = placeEntity?.objectName
-            binding.typeTextView.text = placeEntity?.object_type
+            binding.typeTextView.text = placeEntity?.objectType
 
-            Glide
-                .with(requireActivity())
-                .load("https://images6.alphacoders.com/111/thumb-350-1116422.jpg")
-                .centerCrop()
-                .into(binding.imageTime)
-
-            if (placeEntity != null) {
-                if (placeEntity.opening_days.isBlank()) {
-                    binding.daysTextView.text = "Информация отсутствует"
-                } else {
-                    binding.daysTextView.text = placeEntity.opening_days
-                }
-                if (placeEntity.phone.isBlank()) {
-                    binding.phoneTextView.text = "Информация отсутствует"
-                } else {
-                    binding.phoneTextView.text = placeEntity.phone
-                }
-                if (placeEntity.site.isBlank()) {
-                    binding.siteTextView.text = "Информация отсутствует"
-                } else {
-                    binding.siteTextView.text = placeEntity.site
-                }
-                if (placeEntity.comments.isBlank()) {
-                    binding.commentText.text = "Комментарий не добавлен"
-                } else {
-                    binding.commentText.text = placeEntity.comments
+            with(binding) {
+                if (placeEntity != null) {
+                    if (placeEntity.placeImage.isBlank()) {
+                        Glide
+                            .with(requireActivity())
+                            .load("https://cs11.pikabu.ru/post_img/2019/02/04/12/1549312329147951618.jpg")
+                            .centerCrop()
+                            .into(imagePlace)
+                    } else {
+                        val placeImage = placeEntity.placeImage
+                        Glide
+                            .with(requireActivity())
+                            .load(placeImage)
+                            .centerCrop()
+                            .into(imagePlace)
+                    }
+                    if (placeEntity.phone.isBlank()) {
+                        phoneTextView.text = getString(R.string.Info)
+                    } else {
+                        phoneTextView.text = placeEntity.phone
+                    }
+                    if (placeEntity.site.isBlank()) {
+                        siteTextView.text = getString(R.string.Info)
+                    } else {
+                        siteTextView.text = placeEntity.site
+                    }
+                    if (placeEntity.comments.isBlank()) {
+                        commentText.text = getString(R.string.comment)
+                    } else {
+                        commentText.text = placeEntity.comments
+                    }
+                    if (placeEntity.address.isBlank()) {
+                        addressTextView.text = getString(R.string.Info)
+                    } else {
+                        addressTextView.text = placeEntity.address
+                    }
                 }
             }
         }

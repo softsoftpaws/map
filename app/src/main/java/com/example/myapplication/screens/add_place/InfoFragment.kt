@@ -27,15 +27,15 @@ class InfoFragment : Fragment() {
         binding.placeSaveButton.setOnClickListener {
             val name = binding.placeNameEditText.text.toString().trim()
             val type = binding.placeTypeEditText.text.toString().trim()
-            val days = binding.placeOpeningDaysEditText.text.toString().trim()
+            val image = binding.placeImageEditText.text.toString().trim()
             val phone = binding.placePhoneEditText.text.toString().trim()
             val site = binding.placeSiteEditText.text.toString().trim()
             val comment = binding.placeCommentEditText.text.toString().trim()
             val args: InfoFragmentArgs by navArgs()
             val lat = args.lat.toDouble()
             val long = args.long.toDouble()
-
-            val place = PlaceDto(0, name, type, days, phone, site, comment, lat, long)
+            val address = args.address
+            val place = PlaceDto(0, name, type, image, phone, site, comment, lat, long, address)
 
             if (validate(name, type)) {
                 mMapViewModel.insertPlace(place)

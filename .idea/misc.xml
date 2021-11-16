@@ -47,6 +47,7 @@
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/drawable/unpressed_button_registration.xml" value="0.3828125" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout-v23/fragment_place.xml" value="0.3292572463768116" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/activity_auntification.xml" value="0.22395833333333334" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/activity_authentication.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/activity_map.xml" value="0.33" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/activity_registrarionLogin.xml" value="0.36666666666666664" />
@@ -59,10 +60,11 @@
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_maps.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_place.xml" value="0.33" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_place_list.xml" value="0.1" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_places.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_profile.xml" value="0.34375" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_registration.xml" value="0.33" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/fragment_splash.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/item_place.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/item_place.xml" value="0.33" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/layers_map.xml" value="0.32518115942028986" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/marker_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User1/Desktop/map/app/src/main/res/layout/profile_fragment.xml" value="0.36666666666666664" />

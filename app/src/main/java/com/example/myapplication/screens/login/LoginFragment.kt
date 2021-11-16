@@ -34,18 +34,50 @@ class LoginFragment : Fragment() {
             val log = binding.logEditText.text.toString().trim()
             val pass = binding.passEditText.text.toString().trim()
 
+
             lifecycleScope.launchWhenResumed {
-                userViewModel.getUser(log, pass)
-                val userEntity = userViewModel.userDto
-                if (userEntity != null) {
-                    saveData(log, pass)
-                    transitionToMap()
-                } else {
-                    Toast.makeText(context, "Пользователь не найден", Toast.LENGTH_LONG).show()
+                if(checkLoginText(log)==checkPasswordText(pass)) {
+                    userViewModel.getUser(log, pass)
+                    val userEntity = userViewModel.userDto
+                    if (userEntity != null) {
+                        saveData(log, pass)
+                        transitionToMap()
+                    } else {
+                        Toast.makeText(context, "Пользователь не найден", Toast.LENGTH_LONG).show()
+                    }
                 }
             }
         }
         return binding.root
+    }
+
+    private fun checkLoginText(login: String): Boolean {
+        with(binding) {
+            if ( login.isBlank()){
+                logTextInputLayout.error = "Введите логин"
+                return false
+            }else if (login.length<6){
+                logTextInputLayout.error = "Длина менее 6 символов"
+                return false
+            }else{
+                return true
+            }
+            }
+        }
+
+    private fun checkPasswordText(password: String): Boolean {
+        with(binding) {
+            if ( password.isBlank()){
+                passTextInputLayout.error = "Введите пароль"
+                return false
+            }else if (password.length<6){
+                passTextInputLayout.error = "Длина менее 6 символов"
+                return false
+            }else{
+                return true
+            }
+
+        }
     }
 
     private fun transitionToMap() {

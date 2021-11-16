@@ -1,21 +1,30 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Map</string>
+
+    <!--    Activity Authentication-->
+    <string name="registration">Регистрация</string>
+    <string name="sign_in_button">Вход</string>
+
+    <!--    Login fragment-->
+    <string name="sign_in">Войти</string>
     <string name="switchf">Согласен с правилами</string>
     <string name="registr">Зарегистрироваться</string>
-    <string name="login_fragment">Login</string>
-    <string name="main_fragment">MAIN</string>
-    <string name="registration_fragment">Registration</string>
-    <string name="registration">Регистрация</string>
     <string name="login">Логин</string>
     <string name="mail">E-mail</string>
     <string name="password">Пароль</string>
-    <string name="sign_in">Войти</string>
-    <string name="sign_in_button">Вход</string>
-    <string name="log_out">Выйти</string>
-    <string name="map">Карта</string>
+
+    <!--   Profile fragment-->
     <string name="profile">Профиль</string>
+    <string name="log_out">Выйти</string>
+
+    <!--   Place fragment -->
     <string name="place">Места</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete">Удалить место</string>
+    <string name="Info">Информация отсутствует</string>
+    <string name="comment">Комментарий не добавлен</string>
+
+    <!--    Info fragment-->
+    <string name="make_place">Добавить объект на карту</string>
     <string name="place_name">Название объекта</string>
     <string name="place_type">Тип объекта</string>
     <string name="place_opening_days">Рабочие дни</string>
@@ -24,11 +33,10 @@
     <string name="place_address">Адрес</string>
     <string name="place_comment">Коментарий</string>
     <string name="place_save">Сохранить</string>
-    <string name="make_place">Добавить объект на карту</string>
-    <string name="place_image">Выбрать изображение</string>
+    <string name="place_image">URL изображения</string>
     <string name="info">Информация</string>
-    <string name="delete">Удалить место</string>
-    <string name="Info">Нет информации</string>
+
+    <string name="map">Карта</string>
     <string name="number">1</string>
     <string name="text">Text</string>
     <string name="maps_api_key">AIzaSyBXGtelkBZCdrR7OkeYsWxx69pnVjwxK4M</string>

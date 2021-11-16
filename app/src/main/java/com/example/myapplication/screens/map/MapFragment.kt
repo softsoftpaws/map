@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,6 +25,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PointOfInterest
+import java.util.Locale
+
 
 class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener {
 
@@ -54,9 +57,9 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
             googleMap.animateCamera(CameraUpdateFactory.newLatLng(latlng))
             val lat = latlng.latitude.toString()
             val long = latlng.longitude.toString()
-            val a = getAddress(latlng.latitude, latlng.longitude)
-            Toast.makeText(context, a, Toast.LENGTH_SHORT).show()
-            findNavController().navigate(MapFragmentDirections.actionMapFragmentToInfoFragment(lat, long))
+            val address = getAddress(latlng.latitude, latlng.longitude)
+
+            findNavController().navigate(MapFragmentDirections.actionMapFragmentToInfoFragment(lat, long, address))
         }
         with(binding) {
             layers.mapTypeDefaultImageButton.setOnClickListener {
@@ -89,14 +92,14 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
     }
 
     override fun onPoiClick(poi: PointOfInterest) {
-        Toast.makeText(context, """Clicked: ${poi.name} Place ID:${poi.placeId}
-            Latitude:${poi.latLng.latitude} Longitude:${poi.latLng.longitude}""", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, poi.name, Toast.LENGTH_SHORT).show()
+
     }
 
     private fun currentLocation() {
-
         if (ActivityCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+        ) {
             mMap.isMyLocationEnabled = true
             mMap.uiSettings.isMyLocationButtonEnabled = true
             return
@@ -106,7 +109,10 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
     }
 
     private fun getAddress(lat: Double, lng: Double): String {
-        return Geocoder(requireContext()).getFromLocation(lat, lng, 1)[0].toString()
+        val geocoder = Geocoder(context, Locale.getDefault())
+        val addresses: List<Address> = geocoder.getFromLocation(lat, lng, 1)
+        return addresses[0].getAddressLine(0)
+
     }
 }
 

@@ -8,7 +8,7 @@
     tools:context=".screens.place.PlaceFragment">
 
     <ImageView
-        android:id="@+id/imageTime"
+        android:id="@+id/imagePlace"
         android:layout_width="match_parent"
         android:layout_height="165dp"
         android:contentDescription="@string/place_image"
@@ -26,10 +26,10 @@
         android:paddingEnd="15dp"
         android:text="@string/text"
         android:textColor="@color/dark_grey"
-        android:textSize="22sp"
+        android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageTime" />
+        app:layout_constraintTop_toBottomOf="@+id/imagePlace" />
 
     <TextView
         android:id="@+id/typeTextView"
@@ -42,45 +42,23 @@
         android:paddingBottom="5dp"
         android:text="@string/text"
         android:textColor="@color/dark_grey"
-        android:textSize="18sp"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
-
     <TextView
-        android:id="@+id/infoTextView"
+        android:id="@+id/addressTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:background="@color/white"
         android:paddingStart="15dp"
-        android:paddingTop="7dp"
-        android:paddingEnd="15dp"
-        android:paddingBottom="7dp"
-        android:text="@string/info"
-        android:textColor="@color/dark_grey"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/typeTextView" />
-
-    <TextView
-        android:id="@+id/daysTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:drawablePadding="3dp"
-        android:paddingStart="12dp"
         android:paddingTop="5dp"
         android:paddingEnd="15dp"
         android:paddingBottom="5dp"
         android:text="@string/text"
         android:textColor="@color/dark_grey"
-        android:textSize="15sp"
-        app:drawableLeftCompat="@drawable/ic_time"
-        app:drawableTint="@color/dark_grey"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/typeTextView" />
 
     <TextView
         android:id="@+id/phoneTextView"
@@ -94,11 +72,11 @@
         android:paddingBottom="5dp"
         android:text="@string/text"
         android:textColor="@color/dark_grey"
-        android:textSize="15sp"
+        android:textSize="15dp"
         app:drawableLeftCompat="@drawable/ic_phone"
         app:drawableTint="@color/dark_grey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/daysTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
 
     <TextView
         android:id="@+id/siteTextView"
@@ -112,7 +90,7 @@
         android:paddingBottom="5dp"
         android:text="@string/text"
         android:textColor="@color/dark_grey"
-        android:textSize="15sp"
+        android:textSize="15dp"
         app:drawableLeftCompat="@drawable/ic_site"
         app:drawableTint="@color/dark_grey"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,7 +104,7 @@
         android:layout_height="wrap_content"
         android:text="@string/delete"
         android:textColor="@color/purple_200"
-        android:textSize="12sp"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +123,7 @@
         android:paddingBottom="3dp"
         android:text="@string/place_comment"
         android:textColor="@color/dark_grey"
-        android:textSize="15sp"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/siteTextView" />
@@ -162,7 +140,7 @@
         android:paddingBottom="5dp"
         android:text="@string/text"
         android:textColor="@color/dark_grey"
-        android:textSize="15sp"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commentTextView" />
 

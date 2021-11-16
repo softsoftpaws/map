@@ -8,11 +8,12 @@ data class PlaceDto(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val objectName: String,
-    val object_type: String,
-    val opening_days: String,
+    val objectType: String,
+    val placeImage: String,
     val phone: String,
     val site: String,
     val comments: String,
     val latitude: Double,
     val longitude: Double,
+    val address: String
 )

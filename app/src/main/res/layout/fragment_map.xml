@@ -14,9 +14,7 @@
         map:mapType="normal"
         map:uiCompass="true"
         map:uiZoomControls="true"
-        tools:context=".screens.map.MapFragment"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:context=".screens.map.MapFragment"/>
 
     <include
         android:id="@+id/layers"

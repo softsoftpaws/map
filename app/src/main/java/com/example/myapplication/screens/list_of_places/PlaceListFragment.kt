@@ -19,10 +19,6 @@ class PlaceListFragment : Fragment() {
         binding = FragmentPlacesBinding.inflate(inflater, container, false)
         val adapter = ListAdapter()
 
-        binding.swipeList.setOnRefreshListener {
-            binding.swipeList.isRefreshing = false
-        }
-
         binding.recyclerView.adapter = adapter
 
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
@@ -34,6 +30,7 @@ class PlaceListFragment : Fragment() {
             val placeName = currentItem.objectName
             findNavController().navigate(PlaceListFragmentDirections.actionPlacesFragmentToPlaceFragment(placeName))
         }
+
         return binding.root
     }
 }
