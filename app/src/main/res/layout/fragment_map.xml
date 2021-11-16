@@ -13,7 +13,17 @@
         map:cameraZoom="3"
         map:mapType="normal"
         map:uiCompass="true"
-        map:uiZoomControls ="true"
-        tools:context=".screens.map.MapFragment"/>
+        map:uiZoomControls="true"
+        tools:context=".screens.map.MapFragment"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <include
+        android:id="@+id/layers"
+        layout="@layout/layers_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

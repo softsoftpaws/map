@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+
         binding = FragmentMapBinding.inflate(inflater, container, false)
 
         val mapFragment =
@@ -48,16 +50,24 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
         googleMap.setOnPoiClickListener(this)
         currentLocation()
 
-
-
-
         googleMap.setOnMapLongClickListener { latlng ->
             googleMap.animateCamera(CameraUpdateFactory.newLatLng(latlng))
             val lat = latlng.latitude.toString()
             val long = latlng.longitude.toString()
-
-            findNavController().navigate(MapFragmentDirections.actionMapFragmentToInfoFragment(lat,
-                long))
+            val a = getAddress(latlng.latitude, latlng.longitude)
+            Toast.makeText(context, a, Toast.LENGTH_SHORT).show()
+            findNavController().navigate(MapFragmentDirections.actionMapFragmentToInfoFragment(lat, long))
+        }
+        with(binding) {
+            layers.mapTypeDefaultImageButton.setOnClickListener {
+                mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+            }
+            layers.mapTypeTerrainImageButton.setOnClickListener {
+                mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
+            }
+            layers.mapTypeSatelliteImageButton.setOnClickListener {
+                mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+            }
         }
 
         lifecycleScope.launchWhenResumed {
@@ -83,7 +93,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
             Latitude:${poi.latLng.latitude} Longitude:${poi.latLng.longitude}""", Toast.LENGTH_SHORT).show()
     }
 
-    fun currentLocation(){
+    private fun currentLocation() {
+
         if (ActivityCompat.checkSelfPermission(requireContext(),
                 Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.isMyLocationEnabled = true
@@ -93,4 +104,13 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
             Toast.makeText(context, "Доступ к местоположению запрещен", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun getAddress(lat: Double, lng: Double): String {
+        return Geocoder(requireContext()).getFromLocation(lat, lng, 1)[0].toString()
+    }
 }
+
+
+
+
+
