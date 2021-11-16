@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.addPlace.InfoFragment">
+    tools:context=".screens.add_place.InfoFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/makePlaceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
         android:text="@string/make_place"
         android:textColor="@color/purple_220"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/placeName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,9 +25,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/makePlaceText"
         tools:ignore="MissingConstraints">
 
@@ -46,9 +49,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/placeName">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -60,20 +66,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/placeOpeningDays"
+        android:id="@+id/placeImage"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:hint="@string/place_opening_days"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:hint="@string/place_image"
         app:layout_constraintTop_toBottomOf="@id/placeType">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/placeOpeningDaysEditText"
+            android:id="@+id/placeImageEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="30"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,10 +88,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_phone"
-        app:layout_constraintTop_toBottomOf="@id/placeOpeningDays">
+        app:layout_constraintTop_toBottomOf="@id/placeImage">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/placePhoneEditText"
@@ -101,8 +108,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_site"
         app:layout_constraintTop_toBottomOf="@id/placePhone">
 
@@ -119,8 +127,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
         android:hint="@string/place_comment"
         app:layout_constraintTop_toBottomOf="@id/placeSite">
 
@@ -128,36 +137,23 @@
             android:id="@+id/placeCommentEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="60"
+            android:maxLength="250"
             tools:layout_editor_absoluteX="34dp"
             tools:layout_editor_absoluteY="253dp" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/placeImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/place_image"
-        android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/placeComment" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/placeSaveButton"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:padding="0dp"
         android:text="@string/place_save"
         android:textColor="@color/purple_220"
-        android:textSize="16sp"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/placeImage" />
+        app:layout_constraintTop_toBottomOf="@+id/placeComment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,19 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
-import com.example.myapplication.databinding.ActivityAuntificationBinding
+import com.example.myapplication.databinding.ActivityAuthenticationBinding
 
 class RegistrationLoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityAuntificationBinding
+    private lateinit var binding: ActivityAuthenticationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAuntificationBinding.inflate(layoutInflater)
+        binding = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         with(binding) {
-           registrationButton.setOnClickListener {
+            registrationButton.setOnClickListener {
                 registrationButton.setTextColor(R.color.white.getCurrentColor())
                 loginButton.setTextColor(R.color.purple.getCurrentColor())
                 pressButton(registrationButton, loginButton, true)

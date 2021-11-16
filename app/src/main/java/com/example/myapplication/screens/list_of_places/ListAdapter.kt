@@ -34,7 +34,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
         val currentItem = placeList[position]
         binding.numberTextView.text = (position + 1).toString()
         binding.placeNameTextView.text = currentItem.objectName
-        binding.placeTypeTextView.text = currentItem.object_type
+        binding.placeTypeTextView.text = currentItem.objectType
     }
 
     @SuppressLint("NotifyDataSetChanged")
