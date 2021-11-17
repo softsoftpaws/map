@@ -14,7 +14,26 @@
         map:mapType="normal"
         map:uiCompass="true"
         map:uiZoomControls="true"
-        tools:context=".screens.map.MapFragment" />
+        tools:context=".screens.map.MapFragment"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchPlaceView"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/background_searchview"
+        android:elevation="5dp"
+        map:iconifiedByDefault="false"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="1.0"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent"
+        map:queryBackground="@color/transparent"
+        map:queryHint="Поиск" />
 
     <include
         android:id="@+id/layers"
