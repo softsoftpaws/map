@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -43,6 +45,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
         mapFragment?.getMapAsync(this)
         sharedPreferences = requireContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         mMapViewModel = ViewModelProvider(this)[MapViewModel::class.java]
+
         return binding.root
     }
 
@@ -50,6 +53,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
         mMap = googleMap
         googleMap.setOnPoiClickListener(this)
         currentLocation()
+        positionLocationButton()
+        positionCompass()
 
         googleMap.setOnMapLongClickListener { latlng ->
             googleMap.animateCamera(CameraUpdateFactory.newLatLng(latlng))
@@ -58,6 +63,31 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
             val address = getAddress(latlng.latitude, latlng.longitude)
             findNavController().navigate(MapFragmentDirections.actionMapFragmentToInfoFragment(lat, long, address))
         }
+
+
+        binding.searchPlaceView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                val searchPlaceName = binding.searchPlaceView.query.toString()
+                if (searchPlaceName.isNotBlank()) {
+                    try {
+                        val locationAddress = Geocoder(requireContext()).getFromLocationName(searchPlaceName, 1)[0]
+                        if (locationAddress != null) {
+                            val placeCoordinates = LatLng(locationAddress.latitude, locationAddress.longitude)
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(placeCoordinates, 9f))
+                        }
+                    } catch (e: Exception) {
+                        println(e)
+                    }
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
 
         with(binding) {
             layers.mapTypeDefaultImageButton.setOnClickListener {
@@ -95,7 +125,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
 
     private fun currentLocation() {
         if (ActivityCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+        ) {
             mMap.isMyLocationEnabled = true
             mMap.uiSettings.isMyLocationButtonEnabled = true
             return
@@ -108,5 +139,23 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnPoiClickListener
         val geocoder = Geocoder(context, Locale.getDefault())
         val addresses: List<Address> = geocoder.getFromLocation(lat, lng, 1)
         return addresses[0].getAddressLine(0)
+    }
+
+    private fun positionLocationButton() {
+        val locationButton =
+            (view?.findViewById<View>(Integer.parseInt("1"))?.parent as View).findViewById<View>(Integer.parseInt("2"))
+        val rlp = locationButton.layoutParams as (RelativeLayout.LayoutParams)
+        rlp.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0)
+        rlp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE)
+        rlp.setMargins(0, 0, 50, 200)
+    }
+
+    private fun positionCompass() {
+        val locationCompass =
+            (view?.findViewById<View>(Integer.parseInt("1"))?.parent as View).findViewById<View>(Integer.parseInt("5"))
+        val layoutParams = locationCompass.layoutParams as (RelativeLayout.LayoutParams)
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0)
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE)
+        layoutParams.setMargins(0, 0, 0, 375)
     }
 }
